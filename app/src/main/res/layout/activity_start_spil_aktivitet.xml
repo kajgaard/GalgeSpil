@@ -8,59 +8,65 @@
 
     <Button
         android:id="@+id/buttonD"
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="67dp"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
         android:text="D"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonA" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonA"
+        app:layout_constraintStart_toEndOf="@+id/hangman" />
 
     <Button
         android:id="@+id/buttonC"
         android:layout_width="44dp"
         android:layout_height="49dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginEnd="50dp"
         android:text="C"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonB"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonA"
         app:layout_constraintEnd_toStartOf="@+id/buttonD" />
 
     <Button
         android:id="@+id/buttonB"
         android:layout_width="44dp"
         android:layout_height="49dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginStart="50dp"
         android:text="B"
         app:layout_constraintBottom_toBottomOf="@+id/buttonA"
-        app:layout_constraintEnd_toStartOf="@+id/buttonC"
         app:layout_constraintStart_toEndOf="@+id/buttonA" />
 
     <Button
         android:id="@+id/buttonA"
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="190dp"
+        android:layout_width="46dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="20dp"
         android:text="A"
-        app:layout_constraintEnd_toStartOf="@+id/buttonD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintEnd_toStartOf="@+id/hangman"
+        app:layout_constraintTop_toBottomOf="@+id/spgtext" />
+
+    <Button
+        android:id="@+id/afslutKnap"
+        android:layout_width="77dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="3dp"
+        android:text="afslut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hangman"
+        app:layout_constraintTop_toTopOf="@+id/hangman" />
 
     <ImageView
         android:id="@+id/hangman"
-        android:layout_width="278dp"
-        android:layout_height="260dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="0dp"
+        android:layout_height="205dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="9dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/afslutKnap"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hangman" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/hearts"
         android:layout_width="89dp"
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
@@ -84,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:text="spørgsmål"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,8 +104,8 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintBottom_toBottomOf="@+id/hearts"
+        app:layout_constraintEnd_toEndOf="@+id/hearts"
+        app:layout_constraintStart_toStartOf="@+id/hearts"
+        app:layout_constraintTop_toTopOf="@+id/hearts" />
 </androidx.constraintlayout.widget.ConstraintLayout>
