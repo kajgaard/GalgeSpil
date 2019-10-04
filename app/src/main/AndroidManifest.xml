@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".StartSpilAktivitet"></activity>
         <activity android:name=".ReglerAktivitet" />
-        <activity android:name=".Hovedmenu">
+        <activity android:name=".Hovedmenu" android:label="MariasGalgespil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
