@@ -24,15 +24,6 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonD" />
 
     <Button
-        android:id="@+id/buttonB"
-        android:layout_width="44dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="50dp"
-        android:text="B"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonA"
-        app:layout_constraintStart_toEndOf="@+id/buttonA" />
-
-    <Button
         android:id="@+id/buttonA"
         android:layout_width="46dp"
         android:layout_height="47dp"
@@ -40,6 +31,17 @@
         android:text="A"
         app:layout_constraintEnd_toStartOf="@+id/hangman"
         app:layout_constraintTop_toBottomOf="@+id/spgtext" />
+
+    <Button
+        android:id="@+id/buttonB"
+        android:layout_width="44dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="30dp"
+        android:text="B"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonA"
+        app:layout_constraintEnd_toStartOf="@+id/buttonC"
+        app:layout_constraintStart_toEndOf="@+id/buttonA" />
 
     <Button
         android:id="@+id/afslutKnap"

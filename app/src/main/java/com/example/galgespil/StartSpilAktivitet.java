@@ -64,6 +64,25 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         }else if(v == afslutKnap){
 
         }
+        opdaterSkærm();
+    }
 
+    private void opdaterSkærm(){
+        ukendtOrd.setText(logik.getSynligtOrd());
+
+        /*
+        TODO: Fix. Metoden i logik skal være korrekt
+        liv.setText(logik.getAntalLiv());
+
+         */
+
+
+
+        if (logik.erSpilletVundet()) {
+           // info.append("\nDu har vundet");
+        }
+        if (logik.erSpilletTabt()) {
+           // info.setText("Du har tabt, ordet var : " + logik.getOrdet());
+        }
     }
 }

@@ -72,6 +72,11 @@ public class Logik {
             return spilletErTabt || spilletErVundet;
         }
 
+        //OBS Har selv tilføjet
+        public int getAntalLiv(){
+            int antalLiv = 6 - getAntalForkerteBogstaver();
+            return antalLiv;}
+
 
         public void nulstil() {
             brugteBogstaver.clear();
@@ -205,6 +210,10 @@ public class Logik {
             System.out.println("muligeOrd = " + muligeOrd);
             nulstil();
         }
+
+
+
+
     }
 
 
