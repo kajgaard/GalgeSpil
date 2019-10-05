@@ -69,18 +69,18 @@
 
     <ImageView
         android:id="@+id/hearts"
-        android:layout_width="89dp"
-        android:layout_height="80dp"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/hangman"
         app:layout_constraintTop_toBottomOf="@+id/hangman"
-        app:srcCompat="@drawable/heart" />
+        app:srcCompat="@drawable/heart1" />
 
     <TextView
         android:id="@+id/tid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="tid"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/hangman"
@@ -100,12 +100,12 @@
 
     <TextView
         android:id="@+id/antalLiv"
-        android:layout_width="31dp"
-        android:layout_height="53dp"
+        android:layout_width="32dp"
+        android:layout_height="35dp"
         android:text="5"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="36sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/hearts"
         app:layout_constraintEnd_toEndOf="@+id/hearts"
         app:layout_constraintStart_toStartOf="@+id/hearts"

@@ -53,7 +53,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         hangman = findViewById(R.id.hangman);
         hangman.setImageResource(R.drawable.galge);
 
-        //hjerte = findViewById(R.id.hangman)
+        hjerte = findViewById(R.id.hearts);
+        hjerte.setImageResource(R.drawable.heart1);
 
 
         stopUr.start();
