@@ -33,9 +33,9 @@ public class Logik {
             muligeOrd.add("nitten");
 
              */
-            muligeOrd.add("ABC");
+
             muligeOrd.add("ACC");
-            muligeOrd.add("ABCD");
+
             nulstil();
         }
 

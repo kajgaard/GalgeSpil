@@ -20,7 +20,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         a = findViewById(R.id.buttonA);
         a.setOnClickListener(this);
 
-        b = findViewById(R.id.buttonD);
+        b = findViewById(R.id.buttonB);
         b.setOnClickListener(this);
 
         c = findViewById(R.id.buttonC);
@@ -59,7 +59,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             c.setEnabled(false);
 
         }else if(v == d){
-            String bogstav = c.getText().toString();
+            String bogstav = d.getText().toString();
             logik.gætBogstav(bogstav);
             d.setEnabled(false);
 
@@ -82,13 +82,16 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
 
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
-            this.startActivity(i);
-            i.putExtra("status", "Tillykket du har vundet!");
+
+            i.putExtra("status", "Tillykke du har vundet!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
+            this.startActivity(i);
+
         }
         if (logik.erSpilletTabt()) {
-           // info.setText("Du har tabt, ordet var : " + logik.getOrdet());
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            i.putExtra("status", "Øv! Du gættede ikke ordet");
+            i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             this.startActivity(i);
         }
     }
