@@ -22,6 +22,11 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         hjælpKnap = findViewById(R.id.hjælpKnap);
         hjælpKnap.setOnClickListener(this);
 
+        highscoresKnap = findViewById(R.id.highscoresKnap);
+        highscoresKnap.setOnClickListener(this);
+
+        indstillingerKnap = findViewById(R.id.indstillingerKnap);
+        indstillingerKnap.setOnClickListener(this);
 
     }
 
@@ -33,9 +38,12 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         } else if (v == hjælpKnap) {
             Intent i = new Intent(this, HjælpAktivitet.class);
             this.startActivity(i);
-
-            //i.putExtra("navn","Maria");
-            //For at modtage string skriv: String navn = i.getStringExtra("navn");
+        } else if (v == indstillingerKnap){
+            Intent i = new Intent(this,IndstillingerAktivitet.class);
+            this.startActivity(i);
+        } else if (v == highscoresKnap){
+            Intent i = new Intent(this, HighscoresAktivitet.class);
+            this.startActivity(i);
         }
     }
 }
