@@ -32,6 +32,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         afslutKnap.setOnClickListener(this);
 
         liv = findViewById(R.id.antalLiv);
+        liv.setText("6");
         tid = findViewById(R.id.tid);
 
         ukendtOrd = findViewById(R.id.spgtext);
@@ -70,12 +71,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     private void opdaterSkærm(){
         ukendtOrd.setText(logik.getSynligtOrd());
 
-        /*
-        TODO: Fix. Metoden i logik skal være korrekt
-        liv.setText(logik.getAntalLiv());
-
-         */
-
+        //TODO: Fix. Metoden i logik skal være korrekt
+        liv.setText(""+getAntalLiv());
 
 
         if (logik.erSpilletVundet()) {
@@ -85,4 +82,10 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
            // info.setText("Du har tabt, ordet var : " + logik.getOrdet());
         }
     }
+
+    //OBS Har selv tilføjet
+    public int getAntalLiv(){
+        int antalLiv = 6 - logik.getAntalForkerteBogstaver();
+        return antalLiv;}
+
 }
