@@ -13,8 +13,10 @@ import android.widget.TextView;
 public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
 
     Button tilHovedmenu;
-    TextView ordGættet, tidSlut, status, forkerteBog;
+    TextView ordGættet, tidSlut, status, forkerteBog, score;
     Logik logik = new Logik();
+    int point = 0;
+    int slutTid = 0;
 
 
     @Override
@@ -40,8 +42,13 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         forkerteBog.setText("Du gættede "+ forkerteBogFraSpil + " bogstaver forkert");
 
 
-        tidSlut = findViewById(R.id.tid);
-        //tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
+
+        tidSlut = findViewById(R.id.tidSlutTV);
+        tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
+
+        score = findViewById(R.id.score);
+        score.setText("Din score er: "+getScore());
+
 
 
     }
@@ -53,4 +60,22 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
             this.startActivity(i);
         }
     }
+
+    public int getScore(){
+        String tidFraSpil = getIntent().getStringExtra("tid");
+        String forkerteBogFraSpil = getIntent().getStringExtra("forkerteBogstaver");
+        int resultTime = Integer.parseInt(tidFraSpil);
+        int penalty = Integer.parseInt(forkerteBogFraSpil);
+        point = resultTime + (penalty*5);
+        return point;
+    }
+    /*
+    public int getTime(){
+        String tidFraSpil = getIntent().getStringExtra("tid");
+        int resultTime = Integer.parseInt(tidFraSpil);
+        slutTid = resultTime;
+        return slutTid;
+    }
+
+     */
 }

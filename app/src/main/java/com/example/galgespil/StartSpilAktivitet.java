@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
- //ImageView image = (ImageView) findViewById(R.id.test_image);
- //image.setImageResource(R.drawable.xxx);
 
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
     Logik logik = new Logik();
