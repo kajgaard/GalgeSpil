@@ -8,10 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+
+
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
     Logik logik = new Logik();
+    StopUr stopUr = new StopUr();
     Button a, b, c, d, afslutKnap;
     TextView ukendtOrd, liv, tid;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,15 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         ukendtOrd = findViewById(R.id.spgtext);
         ukendtOrd.setText(logik.getSynligtOrd());
+
+        tid = findViewById(R.id.tid);
+        tid.setText("0.00");
+
+
+
+        stopUr.start();
+
+
 
     }
 
@@ -73,25 +87,27 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
     private void opdaterSkærm(){
         ukendtOrd.setText(logik.getSynligtOrd());
-
         liv.setText(""+getAntalLiv());
+        tid.setText(""+stopUr.getElapsedTimeSecs());
 
 
         if (logik.erSpilletVundet()) {
-
-
-
+            stopUr.stop();
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
 
             i.putExtra("status", "Tillykke du har vundet!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
+            i.putExtra("tid",""+stopUr.getElapsedTimeSecs());
             this.startActivity(i);
 
         }
         if (logik.erSpilletTabt()) {
+            stopUr.stop();
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
             i.putExtra("status", "Øv! Du gættede ikke ordet");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
+            i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
+
             this.startActivity(i);
         }
     }

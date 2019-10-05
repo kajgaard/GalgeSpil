@@ -23,6 +23,8 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_afsluttet_spil_aktivitet);
 
         String statusFraSpil = getIntent().getStringExtra("status");
+        String forkerteBogFraSpil = getIntent().getStringExtra("forkerteBogstaver");
+        String tidFraSpil = getIntent().getStringExtra("tid");
 
         tilHovedmenu = findViewById(R.id.tilHovedmenu);
         tilHovedmenu.setOnClickListener(this);
@@ -34,11 +36,14 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         ordGættet = findViewById(R.id.ordGættet);
         ordGættet.setText("Ordet du skulle gætte var: \n"+ logik.getOrdet());
 
+        forkerteBog = findViewById(R.id.forkerteBog);
+        forkerteBog.setText("Du gættede "+ forkerteBogFraSpil + " bogstaver forkert");
 
 
+        tidSlut = findViewById(R.id.tid);
+        tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
 
 
-        //For at modtage string skriv: String navn = i.getStringExtra("navn");
     }
 
     @Override
