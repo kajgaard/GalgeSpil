@@ -2,6 +2,7 @@ package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,6 +64,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             d.setEnabled(false);
 
         }else if(v == afslutKnap){
+            Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            this.startActivity(i);
 
         }
         opdaterSkærm();
@@ -71,15 +74,22 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     private void opdaterSkærm(){
         ukendtOrd.setText(logik.getSynligtOrd());
 
-        //TODO: Fix. Metoden i logik skal være korrekt
         liv.setText(""+getAntalLiv());
 
 
         if (logik.erSpilletVundet()) {
-           // info.append("\nDu har vundet");
+
+
+
+            Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            this.startActivity(i);
+            i.putExtra("status", "Tillykket du har vundet!");
+            i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
         }
         if (logik.erSpilletTabt()) {
            // info.setText("Du har tabt, ordet var : " + logik.getOrdet());
+            Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            this.startActivity(i);
         }
     }
 
