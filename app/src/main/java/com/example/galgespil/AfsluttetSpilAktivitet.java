@@ -11,6 +11,8 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afsluttet_spil_aktivitet);
 
+        String status = getIntent().getStringExtra("status");
+
         //For at modtage string skriv: String navn = i.getStringExtra("navn");
     }
 }
