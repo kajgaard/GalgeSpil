@@ -62,11 +62,13 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
     }
 
     public int getScore(){
+        //Brugeren har som udgangspunkt en score på 1000, hvorefter antallet af
+        // sekunder bliver trukket fra, samt en penalty på 10 point pr. forkert gættet bogstav
         String tidFraSpil = getIntent().getStringExtra("tid");
         String forkerteBogFraSpil = getIntent().getStringExtra("forkerteBogstaver");
         int resultTime = Integer.parseInt(tidFraSpil);
         int penalty = Integer.parseInt(forkerteBogFraSpil);
-        point = resultTime + (penalty*5);
+        point = 1000 - resultTime - (penalty*10);
         return point;
     }
     /*

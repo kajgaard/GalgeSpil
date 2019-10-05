@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Hovedmenu extends AppCompatActivity implements View.OnClickListener {
 
     Button hjælpKnap, startKnap, highscoresKnap, indstillingerKnap;
+    TextView velkomst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,11 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
 
         indstillingerKnap = findViewById(R.id.indstillingerKnap);
         indstillingerKnap.setOnClickListener(this);
+
+        velkomst = findViewById(R.id.textView);
+        velkomst.setText("Velkommen til Hangman!");
+
+
 
     }
 
