@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ReglerAktivitet extends AppCompatActivity {
+public class HighscoresAktivitet extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_regler_aktivitet);
+        setContentView(R.layout.activity_highscores_aktivitet);
     }
 }

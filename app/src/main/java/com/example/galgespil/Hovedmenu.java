@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class Hovedmenu extends AppCompatActivity implements View.OnClickListener {
 
-    Button reglerKnap, startKnap;
+    Button hjælpKnap, startKnap, highscoresKnap, indstillingerKnap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +19,8 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         startKnap = findViewById(R.id.startKnap);
         startKnap.setOnClickListener(this);
 
-        reglerKnap = findViewById(R.id.reglerKnap);
-        reglerKnap.setOnClickListener(this);
+        hjælpKnap = findViewById(R.id.hjælpKnap);
+        hjælpKnap.setOnClickListener(this);
 
 
     }
@@ -30,8 +30,8 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         if (v == startKnap) {
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
-        } else if (v == reglerKnap) {
-            Intent i = new Intent(this,ReglerAktivitet.class);
+        } else if (v == hjælpKnap) {
+            Intent i = new Intent(this, HjælpAktivitet.class);
             this.startActivity(i);
 
             //i.putExtra("navn","Maria");
