@@ -41,7 +41,7 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
 
 
         tidSlut = findViewById(R.id.tid);
-        tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
+        //tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
 
 
     }

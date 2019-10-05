@@ -6,15 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-
+ //ImageView image = (ImageView) findViewById(R.id.test_image);
+ //image.setImageResource(R.drawable.xxx);
 
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
     Logik logik = new Logik();
     StopUr stopUr = new StopUr();
     Button a, b, c, d, afslutKnap;
     TextView ukendtOrd, liv, tid;
+    ImageView hangman, hjerte;
 
 
     @Override
@@ -47,11 +50,13 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         tid = findViewById(R.id.tid);
         tid.setText("0.00");
 
+        hangman = findViewById(R.id.hangman);
+        hangman.setImageResource(R.drawable.galge);
+
+        //hjerte = findViewById(R.id.hangman)
 
 
         stopUr.start();
-
-
 
     }
 
@@ -89,6 +94,20 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         ukendtOrd.setText(logik.getSynligtOrd());
         liv.setText(""+getAntalLiv());
         tid.setText(""+stopUr.getElapsedTimeSecs());
+
+        if(getAntalLiv() == 5){
+            hangman.setImageResource(R.drawable.forkert1);
+        } else if (getAntalLiv() == 4){
+            hangman.setImageResource(R.drawable.forkert2);
+        } else if (getAntalLiv() == 3){
+            hangman.setImageResource(R.drawable.forkert3);
+        } else if(getAntalLiv() == 2){
+            hangman.setImageResource(R.drawable.forkert4);
+        } else if (getAntalLiv() == 1) {
+            hangman.setImageResource(R.drawable.forkert5);
+        } else if (getAntalLiv() == 0){
+            hangman.setImageResource(R.drawable.forkert6);
+        }
 
 
         if (logik.erSpilletVundet()) {
