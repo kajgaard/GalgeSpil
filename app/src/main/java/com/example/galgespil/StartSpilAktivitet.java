@@ -82,8 +82,10 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             d.setEnabled(false);
 
         }else if(v == afslutKnap){
-
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            i.putExtra("status", "Øv! Du tabte!");
+            i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
+            i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
             this.startActivity(i);
 
         }
@@ -118,7 +120,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             i.putExtra("status", "Du har vundet!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid",""+stopUr.getElapsedTimeSecs());
-            i.putExtra("vundet", true);
+            i.putExtra("erVundet", true);
+
             this.startActivity(i);
 
         }
@@ -128,6 +131,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             i.putExtra("status", "Øv! Du tabte!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
+            i.putExtra("erTabt", true);
+
 
             this.startActivity(i);
         }

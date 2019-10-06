@@ -12,11 +12,11 @@ import android.widget.TextView;
 
 public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
 
-    Button tilHovedmenu, spilIgen;
-    TextView ordGættet, tidSlut, status, forkerteBog, score;
+    Button tilHovedmenu, spilIgen, gemHighscore;
+    TextView ordGættet, tidSlut, status, forkerteBog, score, skrivNavn;
     Logik logik = new Logik();
     int point = 0;
-    int slutTid = 0;
+
 
 
     @Override
@@ -28,6 +28,7 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         String forkerteBogFraSpil = getIntent().getStringExtra("forkerteBogstaver");
         String tidFraSpil = getIntent().getStringExtra("tid");
 
+
         tilHovedmenu = findViewById(R.id.tilHovedmenu);
         tilHovedmenu.setOnClickListener(this);
 
@@ -37,40 +38,52 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         spilIgen = findViewById(R.id.spilIgenKnap);
         spilIgen.setOnClickListener(this);
 
-        if(logik.erSpilletVundet() == true){
-            forkerteBog = findViewById(R.id.forkerteBog);
-            forkerteBog.setText("Du gættede "+ forkerteBogFraSpil + " bogstaver forkert");
-
-            score = findViewById(R.id.score);
-            score.setText("Din score er: "+getScore());
-
-        }else if(logik.erSpilletVundet() == false){
-            forkerteBog = findViewById(R.id.forkerteBog);
-            forkerteBog.setText("Du gættede desværre " + forkerteBogFraSpil + " bogstaver forkert");
-
-            score = findViewById(R.id.score);
-            score.setVisibility(View.INVISIBLE); //Det ønsked ikke at scoren vises når spillet er tabt
-
-
-
-        }
-
         ordGættet = findViewById(R.id.ordGættet);
         ordGættet.setText("Ordet du skulle gætte var: \n"+ logik.getOrdet());
-
-
-
-
 
 
         tidSlut = findViewById(R.id.tidSlutTV);
         tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
 
-
-
-
+        opdaterSkærm();
 
     }
+
+    private void opdaterSkærm(){
+        String forkerteBogFraSpil = getIntent().getStringExtra("forkerteBogstaver");
+        Boolean erVundet = getIntent().getExtras().getBoolean("erVundet");
+        Boolean erTabt = getIntent().getExtras().getBoolean("erTabt");
+
+        //Debugging
+        System.out.println("opdaterskærm metode kører");
+        if (erVundet == true) {
+            forkerteBog = findViewById(R.id.forkerteBog);
+            forkerteBog.setText("Du gættede " + forkerteBogFraSpil + " bogstaver forkert");
+
+            System.out.println("Spillet er vundet i opdaterskærm");
+
+            score = findViewById(R.id.score);
+            score.setText("Din score er: " + getScore());
+
+            gemHighscore = findViewById(R.id.gemHighscoreKnap);
+            gemHighscore.setOnClickListener(this);
+
+
+
+        } else if (erTabt == true) {
+            forkerteBog = findViewById(R.id.forkerteBog);
+
+            System.out.println("Spillet er vundet i opdaterskærm");
+
+
+            forkerteBog.setText("Du gættede desværre " + forkerteBogFraSpil + " bogstaver forkert");
+
+            score = findViewById(R.id.score);
+            score.setVisibility(View.INVISIBLE); //Det ønskes ikke at scoren vises når spillet er tabt
+
+        }
+    }
+
 
     @Override
     public void onClick(View v) {
