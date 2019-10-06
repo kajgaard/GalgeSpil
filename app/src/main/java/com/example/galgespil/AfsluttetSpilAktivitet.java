@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
 
-    Button tilHovedmenu;
+    Button tilHovedmenu, spilIgen;
     TextView ordGættet, tidSlut, status, forkerteBog, score;
     Logik logik = new Logik();
     int point = 0;
@@ -34,20 +34,39 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         status = findViewById(R.id.status);
         status.setText(statusFraSpil);
 
+        spilIgen = findViewById(R.id.spilIgenKnap);
+        spilIgen.setOnClickListener(this);
+
+        if(logik.erSpilletVundet() == true){
+            forkerteBog = findViewById(R.id.forkerteBog);
+            forkerteBog.setText("Du gættede "+ forkerteBogFraSpil + " bogstaver forkert");
+
+            score = findViewById(R.id.score);
+            score.setText("Din score er: "+getScore());
+
+        }else if(logik.erSpilletVundet() == false){
+            forkerteBog = findViewById(R.id.forkerteBog);
+            forkerteBog.setText("Du gættede desværre " + forkerteBogFraSpil + " bogstaver forkert");
+
+            score = findViewById(R.id.score);
+            score.setVisibility(View.INVISIBLE); //Det ønsked ikke at scoren vises når spillet er tabt
+
+
+
+        }
 
         ordGættet = findViewById(R.id.ordGættet);
         ordGættet.setText("Ordet du skulle gætte var: \n"+ logik.getOrdet());
 
-        forkerteBog = findViewById(R.id.forkerteBog);
-        forkerteBog.setText("Du gættede "+ forkerteBogFraSpil + " bogstaver forkert");
+
+
 
 
 
         tidSlut = findViewById(R.id.tidSlutTV);
         tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
 
-        score = findViewById(R.id.score);
-        score.setText("Din score er: "+getScore());
+
 
 
 
@@ -58,6 +77,11 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         if(v == tilHovedmenu){
             Intent i = new Intent(this,Hovedmenu.class);
             this.startActivity(i);
+        } else if (v == spilIgen){
+            logik.nulstil();
+            Intent i = new Intent(this,StartSpilAktivitet.class);
+            this.startActivity(i);
+
         }
     }
 

@@ -82,6 +82,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             d.setEnabled(false);
 
         }else if(v == afslutKnap){
+
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
             this.startActivity(i);
 
@@ -94,6 +95,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         liv.setText(""+getAntalLiv());
         tid.setText(""+stopUr.getElapsedTimeSecs());
 
+        //Tegn manden lidt efter lidt
         if(getAntalLiv() == 5){
             hangman.setImageResource(R.drawable.forkert1);
         } else if (getAntalLiv() == 4){
@@ -113,16 +115,17 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             stopUr.stop();
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
 
-            i.putExtra("status", "Tillykke du har vundet!");
+            i.putExtra("status", "Du har vundet!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid",""+stopUr.getElapsedTimeSecs());
+            i.putExtra("vundet", true);
             this.startActivity(i);
 
         }
         if (logik.erSpilletTabt()) {
             stopUr.stop();
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
-            i.putExtra("status", "Øv! Du gættede ikke ordet");
+            i.putExtra("status", "Øv! Du tabte!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
 
