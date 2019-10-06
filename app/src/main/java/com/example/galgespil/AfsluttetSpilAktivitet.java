@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -13,7 +14,9 @@ import android.widget.TextView;
 public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
 
     Button tilHovedmenu, spilIgen, gemHighscore;
-    TextView ordGættet, tidSlut, status, forkerteBog, score, skrivNavn;
+    TextView ordGættet, tidSlut, status, forkerteBog, score;
+
+
     Logik logik = new Logik();
     int point = 0;
 
@@ -70,6 +73,8 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
 
 
 
+
+
         } else if (erTabt == true) {
             forkerteBog = findViewById(R.id.forkerteBog);
 
@@ -80,6 +85,11 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
 
             score = findViewById(R.id.score);
             score.setVisibility(View.INVISIBLE); //Det ønskes ikke at scoren vises når spillet er tabt
+
+            gemHighscore = findViewById(R.id.gemHighscoreKnap);
+            gemHighscore.setVisibility(View.INVISIBLE);
+
+            //skrivNavn.setVisibility(View.INVISIBLE);
 
         }
     }
@@ -94,6 +104,8 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
             logik.nulstil();
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
+
+        }else if (v == gemHighscore){
 
         }
     }
