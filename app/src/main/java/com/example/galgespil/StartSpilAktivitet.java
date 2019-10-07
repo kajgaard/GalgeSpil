@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.DecimalFormat;
 
 
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
@@ -16,7 +19,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     Button a, b, c, d, afslutKnap;
     TextView ukendtOrd, liv, tid;
     ImageView hangman, hjerte;
-
+    Runnable opdaterTid;
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,29 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         stopUr.start();
 
+        opdaterTidMetode();
+
+        /*
+        opdaterTid = new Runnable() {
+            double antalSekunderGået = 0.0;
+            DecimalFormat form = new DecimalFormat("#.#");
+
+            public void run() {
+                while (!logik.erSpilletVundet() || logik.erSpilletTabt()) {
+                    antalSekunderGået = antalSekunderGået + 0.1;
+                    tid.setText("" + Double.valueOf(form.format(antalSekunderGået)));
+                    handler.postDelayed(this, 100); // udfør denne Runnable igen om 0,1 sekund
+                }
+
+            }
+
+        };
+        handler.postDelayed(opdaterTid, 100); // udfør om 1 sekund
+
+         */
+
+
+
     }
 
     @Override
@@ -91,6 +118,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         }
         opdaterSkærm();
         //TODO: Lav et stopur der virker. Evt. med et widget.
+
+
     }
 
     private void opdaterSkærm(){
@@ -143,4 +172,19 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         int antalLiv = 6 - logik.getAntalForkerteBogstaver();
         return antalLiv;}
 
+    public void opdaterTidMetode(){
+
+        opdaterTid = new Runnable() {
+            int antalSekunderGået = 0;
+            //DecimalFormat form = new DecimalFormat("#.#");
+
+            public void run() {
+                if (antalSekunderGået++<60) {
+                    tid.setText(""+antalSekunderGået);
+                    handler.postDelayed(this, 1000); // udfør denne Runnable igen om 0,1 sekund
+                }
+            }
+        };
+        handler.postDelayed(opdaterTid, 1000); // udfør om 1 sekund
+    }
 }
