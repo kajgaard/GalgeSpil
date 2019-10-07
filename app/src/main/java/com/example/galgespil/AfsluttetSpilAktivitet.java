@@ -42,7 +42,8 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         spilIgen.setOnClickListener(this);
 
         ordGættet = findViewById(R.id.ordGættet);
-        ordGættet.setText("Ordet du skulle gætte var: \n"+ logik.getOrdet());
+        ordGættet.setText("Ordet du skulle gætte var: \n"+ logik.getOrdet()); //OBS: Muligvis
+        // problem da logik ikke er en singleton. Henter den så samme ord fra StartSpil?
 
 
         tidSlut = findViewById(R.id.tidSlutTV);
@@ -59,7 +60,7 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
 
         //Debugging
         System.out.println("opdaterskærm metode kører");
-        if (erVundet == true) {
+        if (erVundet) {
             forkerteBog = findViewById(R.id.forkerteBog);
             forkerteBog.setText("Du gættede " + forkerteBogFraSpil + " bogstaver forkert");
 
@@ -73,14 +74,10 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
             gemHighscore.setOnClickListener(this);
 
 
-
-
-
-        } else if (erTabt == true) {
+        } else if (erTabt) {
             forkerteBog = findViewById(R.id.forkerteBog);
 
             System.out.println("Spillet er vundet i opdaterskærm");
-
 
             forkerteBog.setText("Du gættede desværre " + forkerteBogFraSpil + " bogstaver forkert");
 
