@@ -90,6 +90,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         }
         opdaterSkærm();
+        //TODO: Lav et stopur der virker. Evt. med et widget.
     }
 
     private void opdaterSkærm(){
@@ -111,7 +112,6 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         } else if (getAntalLiv() == 0){
             hangman.setImageResource(R.drawable.forkert6);
         }
-
 
         if (logik.erSpilletVundet()) {
             stopUr.stop();

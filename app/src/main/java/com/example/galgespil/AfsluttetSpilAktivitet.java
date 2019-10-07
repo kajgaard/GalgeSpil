@@ -65,6 +65,7 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
 
             System.out.println("Spillet er vundet i opdaterskærm");
 
+            //TODO: Ændre posiion på knapperne, da der nu er kæmpe hul. Evt. skal der ny aktivitet til ved gemt/vundet spil.
             score = findViewById(R.id.score);
             score.setText("Din score er: " + getScore());
 
@@ -89,7 +90,7 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
             gemHighscore = findViewById(R.id.gemHighscoreKnap);
             gemHighscore.setVisibility(View.INVISIBLE);
 
-            //skrivNavn.setVisibility(View.INVISIBLE);
+
 
         }
     }
@@ -106,7 +107,7 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
             this.startActivity(i);
 
         }else if (v == gemHighscore){
-
+            //TODO: åbn fragtment hvor man kan skrive sit navn.
         }
     }
 
