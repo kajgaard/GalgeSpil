@@ -60,7 +60,7 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
 
         //Debugging
         System.out.println("opdaterskærm metode kører");
-        if (erVundet) {
+        if (StartSpilAktivitet.logik.erSpilletVundet()) {
             forkerteBog = findViewById(R.id.forkerteBog);
             forkerteBog.setText("Du gættede " + forkerteBogFraSpil + " bogstaver forkert");
 
@@ -98,10 +98,12 @@ public class AfsluttetSpilAktivitet extends AppCompatActivity implements View.On
         if(v == tilHovedmenu){
             Intent i = new Intent(this,Hovedmenu.class);
             this.startActivity(i);
+            StartSpilAktivitet.logik.nulstil();
         } else if (v == spilIgen){
             logik.nulstil();
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
+            StartSpilAktivitet.logik.nulstil();
 
         }else if (v == gemHighscore){
             //TODO: åbn fragtment hvor man kan skrive sit navn.

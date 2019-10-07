@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
-    Logik logik = new Logik();
+    static Logik logik = new Logik();
     StopUr stopUr = new StopUr();
     Button a, b, c, d, afslutKnap;
     TextView ukendtOrd, liv, tid;
@@ -115,24 +115,24 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         if (logik.erSpilletVundet()) {
             stopUr.stop();
+
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
 
             i.putExtra("status", "Du har vundet!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid",""+stopUr.getElapsedTimeSecs());
             i.putExtra("erVundet", true);
-
             this.startActivity(i);
 
         }
         if (logik.erSpilletTabt()) {
             stopUr.stop();
+
             Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
             i.putExtra("status", "Øv! Du tabte!");
             i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
             i.putExtra("erTabt", true);
-
 
             this.startActivity(i);
         }

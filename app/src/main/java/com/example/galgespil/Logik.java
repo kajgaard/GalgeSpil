@@ -20,6 +20,7 @@ public class Logik {
         private boolean spilletErVundet;
         private boolean spilletErTabt;
 
+        //TODO: lav det til en singleton. Det fikser måske problemer i afsluttet spil, med if sætning
         public Logik() {
             /*
             muligeOrd.add("bil");
