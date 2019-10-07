@@ -1,6 +1,7 @@
 package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -60,6 +61,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         stopUr.start();
 
         opdaterTidMetode();
+        //TODO: Stopuret virker, men ikke med millisekunder FIX pls
 
 
     }
@@ -87,15 +89,22 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             d.setEnabled(false);
 
         }else if(v == afslutKnap){
+            visPauseskærm();
+
+            /*
             Intent i = new Intent(this, TabtSpilAktivitet.class);
             i.putExtra("status", "Øv! Du tabte!");
             i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
 
+
+
             this.startActivity(i);
+
+             */
 
         }
         opdaterSkærm();
-        //TODO: Lav et stopur der virker. Evt. med et widget.
+
 
 
     }
@@ -168,6 +177,10 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         };
         handler.postDelayed(opdaterTid, 1000); // udfør om 1 sekund
     }
-
+    private void visPauseskærm() {
+        FragmentManager fm = getSupportFragmentManager();
+        PauseFragment PopUp = new PauseFragment();
+        PopUp.show(fm, "PauseSkærm");
+    }
 
 }
