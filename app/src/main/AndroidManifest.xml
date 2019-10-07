@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HighscoresAktivitet"></activity>
+        <activity android:name=".TabtSpilAktivitet"></activity>
+        <activity android:name=".HighscoresAktivitet" />
         <activity android:name=".IndstillingerAktivitet" />
-        <activity android:name=".AfsluttetSpilAktivitet" />
+        <activity android:name=".VundetSpilAktivitet" />
         <activity android:name=".StartSpilAktivitet" />
         <activity android:name=".HjælpAktivitet" />
         <activity

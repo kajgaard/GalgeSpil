@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-
 
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
     static Logik logik = new Logik();
@@ -63,26 +61,6 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         opdaterTidMetode();
 
-        /*
-        opdaterTid = new Runnable() {
-            double antalSekunderGået = 0.0;
-            DecimalFormat form = new DecimalFormat("#.#");
-
-            public void run() {
-                while (!logik.erSpilletVundet() || logik.erSpilletTabt()) {
-                    antalSekunderGået = antalSekunderGået + 0.1;
-                    tid.setText("" + Double.valueOf(form.format(antalSekunderGået)));
-                    handler.postDelayed(this, 100); // udfør denne Runnable igen om 0,1 sekund
-                }
-
-            }
-
-        };
-        handler.postDelayed(opdaterTid, 100); // udfør om 1 sekund
-
-         */
-
-
 
     }
 
@@ -109,10 +87,10 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             d.setEnabled(false);
 
         }else if(v == afslutKnap){
-            Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            Intent i = new Intent(this, TabtSpilAktivitet.class);
             i.putExtra("status", "Øv! Du tabte!");
-            i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
+
             this.startActivity(i);
 
         }
@@ -145,23 +123,20 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         if (logik.erSpilletVundet()) {
             stopUr.stop();
 
-            Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            Intent i = new Intent(this, VundetSpilAktivitet.class);
 
             i.putExtra("status", "Du har vundet!");
-            i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid",""+stopUr.getElapsedTimeSecs());
-            i.putExtra("erVundet", true);
             this.startActivity(i);
 
         }
         if (logik.erSpilletTabt()) {
             stopUr.stop();
 
-            Intent i = new Intent(this, AfsluttetSpilAktivitet.class);
+            Intent i = new Intent(this, TabtSpilAktivitet.class);
             i.putExtra("status", "Øv! Du tabte!");
-            i.putExtra("forkerteBogstaver", ""+ logik.getAntalForkerteBogstaver());
             i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
-            i.putExtra("erTabt", true);
+
 
             this.startActivity(i);
         }
@@ -172,19 +147,25 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         int antalLiv = 6 - logik.getAntalForkerteBogstaver();
         return antalLiv;}
 
+
     public void opdaterTidMetode(){
 
         opdaterTid = new Runnable() {
             int antalSekunderGået = 0;
-            //DecimalFormat form = new DecimalFormat("#.#");
+
 
             public void run() {
-                if (antalSekunderGået++<60) {
+                if (logik.erSpilletVundet() != true || logik.erSpilletTabt() != true) {
+                    antalSekunderGået++;
                     tid.setText(""+antalSekunderGået);
-                    handler.postDelayed(this, 1000); // udfør denne Runnable igen om 0,1 sekund
+
+
+                    handler.postDelayed(this, 1000); // udfør denne Runnable igen om 1 sekund
                 }
             }
         };
         handler.postDelayed(opdaterTid, 1000); // udfør om 1 sekund
     }
+
+
 }
