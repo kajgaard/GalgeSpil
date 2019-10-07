@@ -128,6 +128,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             i.putExtra("status", "Du har vundet!");
             i.putExtra("tid",""+stopUr.getElapsedTimeSecs());
             this.startActivity(i);
+            finish();
 
         }
         if (logik.erSpilletTabt()) {
@@ -139,6 +140,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
 
             this.startActivity(i);
+            finish();
         }
     }
 
