@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
     static Logik logik = new Logik();
@@ -147,142 +149,142 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
 
         if(v == a){
-            String bogstav = a.getText().toString();
+            String bogstav = a.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             a.setEnabled(false);
 
         }else if (v == b){
-            String bogstav = b.getText().toString();
+            String bogstav = b.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             b.setEnabled(false);
 
         }else if(v == c){
-            String bogstav = c.getText().toString();
+            String bogstav = c.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             c.setEnabled(false);
 
         }else if(v == d){
-            String bogstav = d.getText().toString();
+            String bogstav = d.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             d.setEnabled(false);
 
         }else if(v == e){
-            String bogstav = e.getText().toString();
+            String bogstav = e.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             e.setEnabled(false);
 
         }else if(v == f){
-            String bogstav = f.getText().toString();
+            String bogstav = f.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             f.setEnabled(false);
 
         }else if(v == g){
-            String bogstav = g.getText().toString();
+            String bogstav = g.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             g.setEnabled(false);
 
         }else if(v == h){
-            String bogstav = h.getText().toString();
+            String bogstav = h.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             h.setEnabled(false);
 
         }else if(v == i){
-            String bogstav = i.getText().toString();
+            String bogstav = i.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             i.setEnabled(false);
 
         }else if(v == j){
-            String bogstav = j.getText().toString();
+            String bogstav = j.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             j.setEnabled(false);
 
         }else if(v == k){
-            String bogstav = k.getText().toString();
+            String bogstav = k.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             k.setEnabled(false);
 
         }else if(v == l){
-            String bogstav = l.getText().toString();
+            String bogstav = l.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             l.setEnabled(false);
 
         }else if(v == m){
-            String bogstav = m.getText().toString();
+            String bogstav = m.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             m.setEnabled(false);
 
         }else if(v == n){
-            String bogstav = n.getText().toString();
+            String bogstav = n.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             n.setEnabled(false);
 
         }else if(v == o){
-            String bogstav = o.getText().toString();
+            String bogstav = o.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             o.setEnabled(false);
 
         }else if(v == p){
-            String bogstav = p.getText().toString();
+            String bogstav = p.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             p.setEnabled(false);
 
         }else if(v == q){
-            String bogstav = q.getText().toString();
+            String bogstav = q.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             q.setEnabled(false);
 
         }else if(v == r){
-            String bogstav = r.getText().toString();
+            String bogstav = r.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             r.setEnabled(false);
 
         }else if(v == s){
-            String bogstav = s.getText().toString();
+            String bogstav = s.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             s.setEnabled(false);
 
         }else if(v == t){
-            String bogstav = t.getText().toString();
+            String bogstav = t.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             t.setEnabled(false);
 
         }else if(v == u){
-            String bogstav = u.getText().toString();
+            String bogstav = u.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             u.setEnabled(false);
 
         }else if(v == ve){
-            String bogstav = ve.getText().toString();
+            String bogstav = ve.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             ve.setEnabled(false);
 
         }else if(v == x){
-            String bogstav = x.getText().toString();
+            String bogstav = x.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             x.setEnabled(false);
 
         }else if(v == y){
-            String bogstav = y.getText().toString();
+            String bogstav = y.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             y.setEnabled(false);
 
         }else if(v == z){
-            String bogstav = z.getText().toString();
+            String bogstav = z.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             z.setEnabled(false);
 
         }else if(v == ae){
-            String bogstav = ae.getText().toString();
+            String bogstav = ae.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             ae.setEnabled(false);
 
         }else if(v == oe){
-            String bogstav = oe.getText().toString();
+            String bogstav = oe.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             oe.setEnabled(false);
 
         }else if(v == aa){
-            String bogstav = aa.getText().toString();
+            String bogstav = aa.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
             aa.setEnabled(false);
 
@@ -302,7 +304,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
              */
 
-        }
+        }else{}
         opdaterSkærm();
 
 
@@ -361,14 +363,17 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
     public void opdaterTidMetode(){
 
-        opdaterTid = new Runnable() {
-            int antalSekunderGået = 0;
 
+
+        opdaterTid = new Runnable() {
+
+            int antalSekunderGaaet = 0;
+            //String string = new DecimalFormat("#,#").format(antalSekunderGaaet);
 
             public void run() {
                 if (logik.erSpilletVundet() != true || logik.erSpilletTabt() != true) {
-                    antalSekunderGået++;
-                    tid.setText(""+antalSekunderGået);
+                    antalSekunderGaaet++;
+                    tid.setText(""+antalSekunderGaaet);
 
 
                     handler.postDelayed(this, 1000); // udfør denne Runnable igen om 1 sekund

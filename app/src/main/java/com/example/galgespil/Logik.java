@@ -22,7 +22,7 @@ public class Logik {
 
         //TODO: lav det til en singleton. Det fikser måske problemer i afsluttet spil, med if sætning
         public Logik() {
-            /*
+
             muligeOrd.add("bil");
             muligeOrd.add("computer");
             muligeOrd.add("programmering");
@@ -33,9 +33,7 @@ public class Logik {
             muligeOrd.add("solsort");
             muligeOrd.add("nitten");
 
-             */
 
-            muligeOrd.add("ACC");
 
             nulstil();
         }
@@ -116,7 +114,7 @@ public class Logik {
                 sidsteBogstavVarKorrekt = false;
                 System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
                 antalForkerteBogstaver = antalForkerteBogstaver + 1;
-                if (antalForkerteBogstaver > 1) {
+                if (antalForkerteBogstaver > 5) {
                     spilletErTabt = true;
                 }
             }
