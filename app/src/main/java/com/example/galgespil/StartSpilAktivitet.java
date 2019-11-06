@@ -26,16 +26,16 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_spil_aktivitet);
 
-        a = findViewById(R.id.buttonA);
+        a = findViewById(R.id.buttonQ);
         a.setOnClickListener(this);
 
-        b = findViewById(R.id.buttonB);
+        b = findViewById(R.id.buttonW);
         b.setOnClickListener(this);
 
-        c = findViewById(R.id.buttonC);
+        c = findViewById(R.id.buttonE);
         c.setOnClickListener(this);
 
-        d = findViewById(R.id.buttonD);
+        d = findViewById(R.id.buttonR);
         d.setOnClickListener(this);
 
         afslutKnap = findViewById(R.id.afslutKnap);
