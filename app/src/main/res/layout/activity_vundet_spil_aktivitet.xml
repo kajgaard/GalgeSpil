@@ -8,83 +8,89 @@
 
     <Button
         android:id="@+id/tilHovedmenu"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="100dp"
         android:text="Hovedmenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spilIgenKnap"
+        app:layout_constraintStart_toStartOf="@+id/spilIgenKnap"
         app:layout_constraintTop_toBottomOf="@+id/spilIgenKnap" />
 
     <Button
         android:id="@+id/spilIgenKnap"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="spil igen"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tilHovedmenu"
+        app:layout_constraintEnd_toEndOf="@+id/skrivNavn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/skrivNavn"
         app:layout_constraintTop_toBottomOf="@+id/skrivNavn" />
 
     <Button
         android:id="@+id/gemHighscoreKnap"
-        android:layout_width="107dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:text="gem score"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="gem"
+        app:layout_constraintBottom_toBottomOf="@+id/skrivNavn"
         app:layout_constraintStart_toEndOf="@+id/skrivNavn"
-        app:layout_constraintTop_toBottomOf="@+id/score" />
+        app:layout_constraintTop_toTopOf="@+id/skrivNavn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Din score:"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/skrivNavn"
+        app:layout_constraintEnd_toEndOf="@+id/forkerteBog"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/forkerteBog"
         app:layout_constraintTop_toBottomOf="@+id/forkerteBog" />
 
     <TextView
         android:id="@+id/ordGættet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="100dp"
         android:text="Ordet du skulle gætte er: "
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/status" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tidSlutTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Din tid"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/forkerteBog"
+        app:layout_constraintEnd_toEndOf="@+id/ordGættet"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/ordGættet"
         app:layout_constraintTop_toBottomOf="@+id/ordGættet" />
 
     <TextView
         android:id="@+id/forkerteBog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Du gættedet X forkerte bogstaver"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/score"
+        app:layout_constraintEnd_toEndOf="@+id/tidSlutTV"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tidSlutTV"
         app:layout_constraintTop_toBottomOf="@+id/tidSlutTV" />
 
     <TextView
@@ -102,14 +108,15 @@
 
     <EditText
         android:id="@+id/skrivNavn"
-        android:layout_width="185dp"
+        android:layout_width="150dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/gemHighscoreKnap"
+        app:layout_constraintBottom_toTopOf="@+id/spilIgenKnap"
+        app:layout_constraintEnd_toEndOf="@+id/score"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/score"
         app:layout_constraintTop_toBottomOf="@+id/score" />
 
     <androidx.constraintlayout.widget.Group

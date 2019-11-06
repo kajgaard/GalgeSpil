@@ -67,7 +67,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         gemHighscore.setOnClickListener(this);
 
         skrivNavn = findViewById(R.id.skrivNavn);
-        skrivNavn.setHint("Dit navn:");
+        skrivNavn.setHint("Dit navn");
 
 
     }
