@@ -31,7 +31,7 @@ public class HighscoresAktivitet extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, Collections.singletonList(scorelist.toString()));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, Collections.singletonList(scorelist.toString()));
 
         listView.setAdapter(adapter);
 
