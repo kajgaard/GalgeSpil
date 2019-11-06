@@ -8,21 +8,23 @@
 
     <Button
         android:id="@+id/tilHovedmenu"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginBottom="100dp"
         android:text="Hovedmenu"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spilIgenKnap" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/spilIgenKnap"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
         android:text="spil igen"
+        app:layout_constraintBottom_toTopOf="@+id/tilHovedmenu"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forkerteBog" />
 
@@ -46,7 +48,9 @@
         android:layout_marginTop="20dp"
         android:text="Din tid"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/forkerteBog"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ordGættet" />
 
@@ -57,6 +61,7 @@
         android:layout_marginTop="20dp"
         android:text="Du gættedet X forkerte bogstaver"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/spilIgenKnap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +71,7 @@
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Tillykke du har vundet"
         android:textAlignment="center"
         android:textSize="36sp"
