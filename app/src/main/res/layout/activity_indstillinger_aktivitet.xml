@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/knapInds1"
+        android:id="@+id/dummyKnap1"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/knapInds2"
+        android:id="@+id/dummyKnap2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="UX...."
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/knapInds1" />
+        app:layout_constraintTop_toBottomOf="@+id/dummyKnap1" />
 
     <Button
         android:id="@+id/sletDataknap"
@@ -49,7 +49,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/knapInds2" />
+        app:layout_constraintTop_toBottomOf="@+id/dummyKnap2" />
 
     <Button
         android:id="@+id/tilHovedfraInd"
