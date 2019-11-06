@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">GalgeSpil</string>
+    <string name="regler"> Galgespil er et hjernevriderspil, hvor det går ud på at gætte et tilfældigt ord hvor kun antallet af bogstaver er kendt.\n
+Du kan gætte et bogstav af gangen, og såfremt bogstavet er korrekt placeres dette på den respektive plads i ordet.\n\n
+
+For hver gang der gættes forkert bliver der tegnet en del af en galge med en hængt mand.\n\n
+
+Spillet går derfor ud på at gætte hele ordet inden tegningen bliver færdiggjort. Man har 5 forsøg før tegningen færdiggøres og spillet er tabt.\n\n
+
+Spillet foregår på tid, og tiden trækkes fra den samlede score, på samme måde som antallet af forkerte bogstaver.\n
+Såfremt spillet vindes er det muligt at gemme sin highscore.\n\n
+
+Strategien i spillet går ud på at gætte på de bogstaver, der bruges hyppigst på det respektive sprog. Dvs. at bogstaver som e, s, r og t typisk optræder i danske ord. </string>
 </resources>
