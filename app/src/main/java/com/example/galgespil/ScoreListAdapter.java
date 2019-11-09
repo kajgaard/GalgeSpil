@@ -19,7 +19,7 @@ public class ScoreListAdapter extends ArrayAdapter<Score> {
 
     private Context mContext;
     int mResource;
-    int placering = 1;
+    int placering = 0;
 
     public ScoreListAdapter(@NonNull Context context, int resource, ArrayList<Score> objects) {
         super(context, resource, objects);
@@ -50,8 +50,9 @@ public class ScoreListAdapter extends ArrayAdapter<Score> {
         tvNavn.setText(navn);
         tvScore.setText(score);
 
-
+        placering++;
         tvplacering.setText("" + placering);
+
 
 
 
