@@ -4,23 +4,14 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-class ScoreList{
-     public ArrayList<Score> highScoreList = new ArrayList<>();
-
-    @Override
-    public String toString() {
-        String scores = "";
-        for (Score s : highScoreList) {
-            scores = scores + " " + s.toString();
-        }
-        return scores;
-    }
-}
-
 public class Score {
 
     String navn;
     int score;
+
+
+
+
 
 
     public Score(String navn, int score){
@@ -38,7 +29,7 @@ public class Score {
             this.navn = navn;
         }
 
-        public long getScore() {
+        public int getScore() {
             return score;
         }
 

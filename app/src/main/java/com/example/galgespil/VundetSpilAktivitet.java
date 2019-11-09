@@ -13,9 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import static com.example.galgespil.StartSpilAktivitet.logik;
 
 
 public class VundetSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
@@ -23,11 +27,6 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
     Button tilHovedmenu, spilIgen, gemHighscore;
     TextView ordGættet, tidSlut, status, score, forkerteBog;
     EditText skrivNavn;
-    ScoreList scorelist = new ScoreList();
-
-
-
-
 
 
     int point = 0;
@@ -53,16 +52,16 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         spilIgen.setOnClickListener(this);
 
         ordGættet = findViewById(R.id.ordGættet);
-        ordGættet.setText("Tillykke du gættede ordet: \n"+ StartSpilAktivitet.logik.getOrdet()+"!");
+        ordGættet.setText("Tillykke du gættede ordet: \n"+ logik.getOrdet()+"!");
 
         forkerteBog = findViewById(R.id.forkerteBog);
-        forkerteBog.setText("Du gættede " + StartSpilAktivitet.logik.getAntalForkerteBogstaver() + " bogstaver forkert");
+        forkerteBog.setText("Du gættede " + logik.getAntalForkerteBogstaver() + " bogstaver forkert");
 
         tidSlut = findViewById(R.id.tidSlutTV);
         tidSlut.setText("Din tid er: "+ tidFraSpil + " sekunder");
 
         score = findViewById(R.id.score);
-        score.setText("Din score er: " + udregnScore());
+        score.setText("Du scorede " + udregnScore()+" point");
 
         gemHighscore = findViewById(R.id.gemHighscoreKnap);
         gemHighscore.setOnClickListener(this);
@@ -79,12 +78,12 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         if(v == tilHovedmenu){
             Intent i = new Intent(this,Hovedmenu.class);
             this.startActivity(i);
-            StartSpilAktivitet.logik.nulstil();
+            logik.nulstil();
 
             finish();
 
         } else if (v == spilIgen){
-            StartSpilAktivitet.logik.nulstil();
+            logik.nulstil();
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
 
@@ -94,30 +93,43 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         }else if (v == gemHighscore){
 
             Score person = new Score(skrivNavn.getText().toString(),udregnScore());
+            Logik.highScoreList.add(person);
             //person.setNavn(""+skrivNavn.getText());
             //person.setScore(udregnScore());
-            SharedPreferences mPrefs = getSharedPreferences("Test", MODE_PRIVATE);
-            Gson gson = new Gson();
-            String json = mPrefs.getString("test", "");
-            ScoreList scorelist = gson.fromJson(json, ScoreList.class);
 
-            scorelist.highScoreList.add(person);
+            gemData();
 
-
-            SharedPreferences.Editor prefsEditor = mPrefs.edit();
-            Gson gson1 = new Gson();
-            String json1 = gson1.toJson(scorelist);
-            prefsEditor.putString("test", json1);
-            prefsEditor.apply();
 
             gemHighscore.setEnabled(false);
 
             //gemmer keyboardet når gem knap trykkes
             skrivNavn.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
+            logik.erListeTom = false;
+
         }
     }
 
+    public void gemData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(Logik.highScoreList);
+        editor.putString("highscores",json);
+        editor.apply();
+    }
+
+    private void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("highscores",null);
+        Type type = new TypeToken<ArrayList<Score>>() {}.getType();
+        Logik.highScoreList = gson.fromJson(json,type);
+
+        if(Logik.highScoreList == null){
+            System.out.println("ARRAYLIST FINDES IKKE");
+        }
+    }
 
     public int udregnScore(){
         //Brugeren har som udgangspunkt en score på 1000, hvorefter antallet af
@@ -125,7 +137,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         String tidFraSpil = getIntent().getStringExtra("tid");
 
         int resultTime = Integer.parseInt(tidFraSpil);
-        int penalty = StartSpilAktivitet.logik.getAntalForkerteBogstaver();
+        int penalty = logik.getAntalForkerteBogstaver();
         point = 1000 - resultTime - (penalty*10);
         return point;
     }

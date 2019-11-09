@@ -2,13 +2,20 @@ package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
+import static com.example.galgespil.StartSpilAktivitet.logik;
+
 public class IndstillingerAktivitet extends AppCompatActivity implements View.OnClickListener {
 Button hovedmenu, rydData;
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +40,15 @@ Button hovedmenu, rydData;
 
         }else if (v == rydData){
             //TODO: Implementer
+            /*
+            //PreferenceManager.getDefaultSharedPreferences(context).edit().clear().apply();
+            SharedPreferences settings = getApplicationContext().getSharedPreferences("shared preferences", Context.MODE_PRIVATE);
+            settings.edit().remove("highscores").apply();
+
+            logik.erListeTom = true;
+
+             */
+
         }
     }
 }

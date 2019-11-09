@@ -1,13 +1,21 @@
 package com.example.galgespil;
 
+import android.content.SharedPreferences;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Logik {
         /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
@@ -19,6 +27,10 @@ public class Logik {
         private boolean sidsteBogstavVarKorrekt;
         private boolean spilletErVundet;
         private boolean spilletErTabt;
+        public Boolean erListeTom = false;
+
+        static ArrayList<Score> highScoreList = new ArrayList<>();
+
 
 
         public Logik() {
@@ -34,9 +46,19 @@ public class Logik {
             muligeOrd.add("nitten");
 
 
+            Score maria = new Score("Maria",5000 );
+            Score mikkel = new Score("Mikkel",3000);
+            Score morten = new Score("Morten",709);
+
+
+            highScoreList.add(maria);
+            highScoreList.add(mikkel);
+            highScoreList.add(morten);
 
             nulstil();
         }
+
+
 
 
         public ArrayList<String> getBrugteBogstaver() {

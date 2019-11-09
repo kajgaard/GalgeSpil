@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum= "100">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/tvplacering"
+        android:gravity="center"
+        android:text="1."
+        android:layout_weight="33.3"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="33.3"
+        android:id="@+id/tvnavn"
+        android:gravity="center"
+        android:text="Maria"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="score"
+        android:id="@+id/tvScore"
+        android:layout_weight="33.3"
+        android:gravity="center"
+
+        />
+
+
+</LinearLayout>
+
+
+
+
+
