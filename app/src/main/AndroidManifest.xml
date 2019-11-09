@@ -18,7 +18,7 @@
         <activity android:name=".HjælpAktivitet" />
         <activity
             android:name=".Hovedmenu"
-            android:label="MariasGalgespil">
+            android:label="s185108 Marias's Galgespil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

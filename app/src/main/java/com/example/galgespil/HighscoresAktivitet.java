@@ -15,6 +15,8 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Comparator;
 
 import static com.example.galgespil.StartSpilAktivitet.logik;
 
@@ -51,6 +53,8 @@ public class HighscoresAktivitet extends AppCompatActivity {
  */
         loadData();
 
+        //Logik.highScoreList.sort(new ScoreSorter());
+
 
 
         ScoreListAdapter adapter = new ScoreListAdapter(this,R.layout.list_item_adapter,Logik.highScoreList);
@@ -81,3 +85,18 @@ public class HighscoresAktivitet extends AppCompatActivity {
 
 
 }
+
+
+/*
+
+public class ScoreSorter implements Comparator<Score>
+{
+
+
+    @Override
+    public int compare(Score o1, Score o2) {
+        return o2.getScore().compareTo(o1.getScore());
+    }
+}
+
+ */
