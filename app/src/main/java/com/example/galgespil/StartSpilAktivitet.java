@@ -134,7 +134,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         hangman.setImageResource(R.drawable.galge);
 
         hjerte = findViewById(R.id.hearts);
-        hjerte.setImageResource(R.drawable.heart1);
+        hjerte.setImageResource(R.drawable.heart3);
 
 
         stopUr.start();
