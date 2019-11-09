@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -52,7 +53,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         spilIgen.setOnClickListener(this);
 
         ordGættet = findViewById(R.id.ordGættet);
-        ordGættet.setText("Ordet du skulle gætte var: \n"+ StartSpilAktivitet.logik.getOrdet());
+        ordGættet.setText("Tillykke du gættede ordet: \n"+ StartSpilAktivitet.logik.getOrdet()+"!");
 
         forkerteBog = findViewById(R.id.forkerteBog);
         forkerteBog.setText("Du gættede " + StartSpilAktivitet.logik.getAntalForkerteBogstaver() + " bogstaver forkert");
@@ -79,14 +80,19 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
             Intent i = new Intent(this,Hovedmenu.class);
             this.startActivity(i);
             StartSpilAktivitet.logik.nulstil();
+
+            finish();
+
         } else if (v == spilIgen){
             StartSpilAktivitet.logik.nulstil();
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
 
+            finish();
+
 
         }else if (v == gemHighscore){
-            //TODO: åbn fragtment hvor man kan skrive sit navn.
+
             Score person = new Score(skrivNavn.getText().toString(),udregnScore());
             //person.setNavn(""+skrivNavn.getText());
             //person.setScore(udregnScore());
@@ -103,6 +109,11 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
             String json1 = gson1.toJson(scorelist);
             prefsEditor.putString("test", json1);
             prefsEditor.apply();
+
+            gemHighscore.setEnabled(false);
+
+            //gemmer keyboardet når gem knap trykkes
+            skrivNavn.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
         }
     }

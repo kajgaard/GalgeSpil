@@ -52,11 +52,15 @@ public class TabtSpilAktivitet extends AppCompatActivity implements View.OnClick
             Intent i = new Intent(this,Hovedmenu.class);
             this.startActivity(i);
             StartSpilAktivitet.logik.nulstil();
+
+            finish();
         } else if (v == spilIgen) {
             StartSpilAktivitet.logik.nulstil();
             Intent i = new Intent(this, StartSpilAktivitet.class);
             this.startActivity(i);
             StartSpilAktivitet.logik.nulstil();
+
+            finish();
         }
     }
 }

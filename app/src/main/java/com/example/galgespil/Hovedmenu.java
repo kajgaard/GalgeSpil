@@ -2,6 +2,7 @@ package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -42,6 +45,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
         if (v == startKnap) {
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
+
         } else if (v == hjælpKnap) {
             Intent i = new Intent(this, HjælpAktivitet.class);
             this.startActivity(i);
@@ -52,5 +56,6 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
             Intent i = new Intent(this, HighscoresAktivitet.class);
             this.startActivity(i);
         }
+
     }
 }
