@@ -49,7 +49,10 @@ public class ScoreListAdapter extends ArrayAdapter<Score> {
 
         tvNavn.setText(navn);
         tvScore.setText(score);
-        tvplacering.setText(""+placering);
+
+
+        tvplacering.setText("" + placering);
+
 
 
         return convertView;

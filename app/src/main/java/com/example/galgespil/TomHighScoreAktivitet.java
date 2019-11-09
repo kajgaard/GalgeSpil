@@ -16,8 +16,10 @@ public class TomHighScoreAktivitet extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tom_high_score_aktivitet);
 
-        lavHighScoreKnap.findViewById(R.id.thStartSpilKnap);
+        lavHighScoreKnap = findViewById(R.id.thStartSpilKnap);
         lavHighScoreKnap.setOnClickListener(this);
+
+
 
     }
 

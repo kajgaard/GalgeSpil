@@ -24,6 +24,9 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
     Button hjælpKnap, startKnap, highscoresKnap, indstillingerKnap;
     TextView velkomst;
 
+
+    Logik logik = new Logik();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -58,31 +61,31 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if (v == startKnap) {
+
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
 
+
         } else if (v == hjælpKnap) {
+
             Intent i = new Intent(this, HjælpAktivitet.class);
             this.startActivity(i);
         } else if (v == indstillingerKnap){
+
             Intent i = new Intent(this,IndstillingerAktivitet.class);
             this.startActivity(i);
         } else if (v == highscoresKnap){
-            /*
-            if(logik.erListeTom = false) {
+
+            if(!logik.highScoreList.isEmpty()) {
                 Intent i = new Intent(this, HighscoresAktivitet.class);
                 this.startActivity(i);
-            }else if(logik.erListeTom = true){
+            }else{
                 Intent i = new Intent(this, TomHighScoreAktivitet.class);
                 this.startActivity(i);
-            }else{
-                Intent i = new Intent(this, StartSpilAktivitet.class);
-                startActivity(i);
             }
 
-             */
-            Intent i = new Intent(this, HighscoresAktivitet.class);
-            this.startActivity(i);
+
+
         }
 
     }

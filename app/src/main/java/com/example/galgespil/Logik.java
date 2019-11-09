@@ -45,7 +45,7 @@ public class Logik {
             muligeOrd.add("solsort");
             muligeOrd.add("nitten");
 
-
+            /*
             Score maria = new Score("Maria",5000 );
             Score mikkel = new Score("Mikkel",3000);
             Score morten = new Score("Morten",709);
@@ -54,6 +54,8 @@ public class Logik {
             highScoreList.add(maria);
             highScoreList.add(mikkel);
             highScoreList.add(morten);
+
+             */
 
             nulstil();
         }

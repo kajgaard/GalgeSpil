@@ -16,12 +16,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
+import static com.example.galgespil.StartSpilAktivitet.logik;
 
 
 public class HighscoresAktivitet extends AppCompatActivity {
 
     ListView listView;
+
+
 
     ArrayList<Score> mListe = new ArrayList<>();
 
@@ -49,13 +51,7 @@ public class HighscoresAktivitet extends AppCompatActivity {
  */
         loadData();
 
-        Score maria = new Score("Maria",5000 );
-        Score mikkel = new Score("Mikkel",3000);
-        Score morten = new Score("Morten",709);
 
-        mListe.add(maria);
-        mListe.add(mikkel);
-        mListe.add(morten);
 
         ScoreListAdapter adapter = new ScoreListAdapter(this,R.layout.list_item_adapter,Logik.highScoreList);
         listView.setAdapter(adapter);
@@ -71,10 +67,16 @@ public class HighscoresAktivitet extends AppCompatActivity {
         Logik.highScoreList = gson.fromJson(json,type);
 
         if(Logik.highScoreList == null){
-            ArrayList<Score> highscorelist = new ArrayList<>();
-            Score maria = new Score("Maria",5000 );
-            highscorelist.add(maria);
+            System.out.println("Listen er null");
         }
+            /*
+            Score lortDurIkke = new Score("ArrayList er Tom",5000 );
+            Logik.highScoreList.add(lortDurIkke);
+        }else{
+           // mListe = Logik.highScoreList;
+        }
+
+             */
     }
 
 
