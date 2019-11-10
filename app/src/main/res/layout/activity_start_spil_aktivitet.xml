@@ -299,20 +299,21 @@
 
     <Button
         android:id="@+id/afslutKnap"
-        android:layout_width="77dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="3dp"
         android:text="afslut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/hangman"
-        app:layout_constraintTop_toTopOf="@+id/hangman" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/hangman"
         android:layout_width="0dp"
         android:layout_height="205dp"
         android:layout_marginStart="94dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="9dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/afslutKnap"
