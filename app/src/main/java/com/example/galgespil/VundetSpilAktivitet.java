@@ -52,7 +52,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         spilIgen.setOnClickListener(this);
 
         ordGættet = findViewById(R.id.ordGættet);
-        ordGættet.setText("Tillykke du gættede ordet: \n"+ logik.getOrdet()+"!");
+        ordGættet.setText("Tillykke du gættede ordet: \n"+ logik.getOrdet());
 
         forkerteBog = findViewById(R.id.forkerteBog);
         forkerteBog.setText("Du gættede " + logik.getAntalForkerteBogstaver() + " bogstaver forkert");
