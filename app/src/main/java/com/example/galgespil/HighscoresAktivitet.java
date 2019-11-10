@@ -1,24 +1,14 @@
 package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Comparator;
 
-import static com.example.galgespil.StartSpilAktivitet.logik;
 
 
 public class HighscoresAktivitet extends AppCompatActivity {
@@ -43,16 +33,10 @@ public class HighscoresAktivitet extends AppCompatActivity {
 
 
         listView = findViewById(R.id.listView);
-        /*
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, Collections.singletonList(scorelist.toString()));
-
-        listView.setAdapter(adapter);
-
-
- */
         loadData();
 
+        //Se note i subklasse
         //Logik.highScoreList.sort(new ScoreSorter());
 
 
@@ -73,14 +57,7 @@ public class HighscoresAktivitet extends AppCompatActivity {
         if(Logik.highScoreList == null){
             System.out.println("Listen er null");
         }
-            /*
-            Score lortDurIkke = new Score("ArrayList er Tom",5000 );
-            Logik.highScoreList.add(lortDurIkke);
-        }else{
-           // mListe = Logik.highScoreList;
-        }
 
-             */
     }
 
 
@@ -88,7 +65,7 @@ public class HighscoresAktivitet extends AppCompatActivity {
 
 
 /*
-
+Virker kun med min API 26 og tlf er 21
 public class ScoreSorter implements Comparator<Score>
 {
 

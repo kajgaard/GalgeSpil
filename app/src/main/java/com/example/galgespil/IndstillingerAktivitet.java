@@ -39,14 +39,14 @@ Button hovedmenu, rydData;
             this.startActivity(i);
 
         }else if (v == rydData){
-            //TODO: Implementer
 
-            //PreferenceManager.getDefaultSharedPreferences(context).edit().clear().apply();
             SharedPreferences settings = getApplicationContext().getSharedPreferences("shared preferences", Context.MODE_PRIVATE);
             settings.edit().remove("highscores").apply();
+
+            //må ikke slettes ellers kaos
             logik.highScoreList.removeAll(logik.highScoreList);
 
-            logik.erListeTom = true;
+
 
 
 

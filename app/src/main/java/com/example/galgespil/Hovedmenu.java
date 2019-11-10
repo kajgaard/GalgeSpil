@@ -1,22 +1,12 @@
 package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ActionBar;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-
-import static com.example.galgespil.StartSpilAktivitet.logik;
 
 
 public class Hovedmenu extends AppCompatActivity implements View.OnClickListener {
@@ -25,7 +15,6 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
     TextView velkomst;
 
 
-    Logik logik = new Logik();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +65,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
             this.startActivity(i);
         } else if (v == highscoresKnap){
 
-            if(!logik.highScoreList.isEmpty()) {
+            if(!Logik.highScoreList.isEmpty()) {
                 Intent i = new Intent(this, HighscoresAktivitet.class);
                 this.startActivity(i);
             }else{
