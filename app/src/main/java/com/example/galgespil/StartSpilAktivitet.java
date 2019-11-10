@@ -292,7 +292,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         }else if(v == afslutKnap){
 
-
+            //TODO: want to have fragment
             //visPauseskærm();
 
 
