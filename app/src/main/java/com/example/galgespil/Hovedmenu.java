@@ -2,17 +2,26 @@ package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 
 public class Hovedmenu extends AppCompatActivity implements View.OnClickListener {
 
     Button hjælpKnap, startKnap, highscoresKnap, indstillingerKnap;
     TextView velkomst;
+    Boolean erListeTom = false;
+
+
 
 
 
@@ -20,7 +29,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
 
 
-
+        loadData();
 
 
 
@@ -46,6 +55,26 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    private void loadData(){
+
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("highscores",null);
+        Type type = new TypeToken<ArrayList<Score>>() {}.getType();
+
+        if(sharedPreferences.contains("highscores")) {
+            Logik.highScoreList = gson.fromJson(json, type);
+            erListeTom = false;
+        } else if(Logik.highScoreList == null){
+            System.out.println("Listen er null");
+            erListeTom = true;
+        }else{
+            erListeTom = true;
+        }
+
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -65,7 +94,7 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
             this.startActivity(i);
         } else if (v == highscoresKnap){
 
-            if(!Logik.highScoreList.isEmpty()) {
+            if(!erListeTom) {
                 Intent i = new Intent(this, HighscoresAktivitet.class);
                 this.startActivity(i);
             }else{
