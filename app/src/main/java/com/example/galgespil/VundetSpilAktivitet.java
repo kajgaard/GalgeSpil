@@ -116,9 +116,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
 
                 logik.erListeTom = false;
 
-                Snackbar snackbar = Snackbar
-                        .make(findViewById(android.R.id.content), "Highscore gemt!", Snackbar.LENGTH_SHORT);
-                snackbar.show();
+                Toast.makeText(this, "Highscore gemt!", Toast.LENGTH_SHORT).show();
 
             }
 

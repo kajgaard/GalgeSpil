@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -53,9 +54,7 @@ Button hovedmenu, rydData;
             logik.highScoreList.removeAll(logik.highScoreList);
 
 
-            Snackbar snackbar = Snackbar
-                    .make(findViewById(android.R.id.content), "Data slettet", Snackbar.LENGTH_SHORT);
-            snackbar.show();
+            Toast.makeText(this, "Data slettet!", Toast.LENGTH_SHORT).show();
 
 
 
