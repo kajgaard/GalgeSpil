@@ -291,18 +291,18 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
 
         }else if(v == afslutKnap){
-            visPauseskærm();
-
-            /*
-            Intent i = new Intent(this, TabtSpilAktivitet.class);
-            i.putExtra("status", "Øv! Du tabte!");
-            i.putExtra("tid", ""+stopUr.getElapsedTimeSecs());
 
 
+            //visPauseskærm();
+
+
+            Intent i = new Intent(this, AfbrudtSpilAktivitet.class);
+            i.putExtra("status", "Øv! Du gav op!");
 
             this.startActivity(i);
+            finish();
 
-             */
+
 
         }else{}
         opdaterSkærm();

@@ -17,6 +17,7 @@
         <activity android:name=".VundetSpilAktivitet" />
         <activity android:name=".StartSpilAktivitet" />
         <activity android:name=".HjælpAktivitet" />
+        <activity android:name=".AfbrudtSpilAktivitet"/>
         <activity
             android:name=".Hovedmenu"
             android:label="s185108 Marias's Galgespil">
