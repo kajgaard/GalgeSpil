@@ -45,6 +45,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="slet data"
+        android:backgroundTint="@color/colorSlet"
         app:layout_constraintBottom_toTopOf="@+id/tilHovedfraInd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
