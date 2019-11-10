@@ -298,7 +298,6 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
             Intent i = new Intent(this, AfbrudtSpilAktivitet.class);
             i.putExtra("status", "Øv! Du gav op!");
-
             this.startActivity(i);
             finish();
 

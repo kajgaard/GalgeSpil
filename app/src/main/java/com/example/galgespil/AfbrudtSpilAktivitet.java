@@ -47,7 +47,6 @@ public class AfbrudtSpilAktivitet extends AppCompatActivity implements View.OnCl
 
             finish();
         } else if (v == spilIgen) {
-            StartSpilAktivitet.logik.nulstil();
             Intent i = new Intent(this, StartSpilAktivitet.class);
             this.startActivity(i);
             StartSpilAktivitet.logik.nulstil();
