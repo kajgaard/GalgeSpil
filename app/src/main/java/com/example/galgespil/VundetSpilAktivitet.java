@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -107,6 +108,10 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
 
             logik.erListeTom = false;
 
+            Snackbar snackbar = Snackbar
+                    .make(findViewById(android.R.id.content), "Highscore gemt!", Snackbar.LENGTH_SHORT);
+            snackbar.show();
+
         }
     }
 
@@ -117,6 +122,8 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         String json = gson.toJson(Logik.highScoreList);
         editor.putString("highscores",json);
         editor.apply();
+
+        skrivNavn.setEnabled(false);
     }
 
     private void loadData(){

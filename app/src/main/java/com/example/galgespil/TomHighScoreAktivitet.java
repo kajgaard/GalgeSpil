@@ -28,6 +28,7 @@ public class TomHighScoreAktivitet extends AppCompatActivity implements View.OnC
         if(v==lavHighScoreKnap){
             Intent i = new Intent(this,StartSpilAktivitet.class);
             startActivity(i);
+            finish();
         }
     }
 }

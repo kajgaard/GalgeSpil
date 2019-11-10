@@ -1,6 +1,7 @@
 package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,11 +11,14 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import static com.example.galgespil.StartSpilAktivitet.logik;
 
 public class IndstillingerAktivitet extends AppCompatActivity implements View.OnClickListener {
 Button hovedmenu, rydData;
     private Context context;
+    CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ Button hovedmenu, rydData;
 
         }else if (v == rydData){
 
+
+
             SharedPreferences settings = getApplicationContext().getSharedPreferences("shared preferences", Context.MODE_PRIVATE);
             settings.edit().remove("highscores").apply();
 
@@ -47,6 +53,9 @@ Button hovedmenu, rydData;
             logik.highScoreList.removeAll(logik.highScoreList);
 
 
+            Snackbar snackbar = Snackbar
+                    .make(findViewById(android.R.id.content), "Data slettet", Snackbar.LENGTH_SHORT);
+            snackbar.show();
 
 
 
