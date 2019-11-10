@@ -77,8 +77,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/startKnap"
+        app:layout_constraintEnd_toStartOf="@+id/startKnap"
+        app:srcCompat="@drawable/icon_play" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hjælpKnap"
+        app:layout_constraintEnd_toStartOf="@+id/hjælpKnap"
+        app:layout_constraintTop_toTopOf="@+id/hjælpKnap"
+        app:srcCompat="@drawable/icon_help" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/highscoresKnap"
+        app:layout_constraintEnd_toStartOf="@+id/highscoresKnap"
+        app:layout_constraintTop_toTopOf="@+id/highscoresKnap"
+        app:srcCompat="@drawable/icon_medal" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/indstillingerKnap"
+        app:layout_constraintEnd_toStartOf="@+id/indstillingerKnap"
+        app:layout_constraintTop_toTopOf="@+id/indstillingerKnap"
+        app:srcCompat="@drawable/icon_settings" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
