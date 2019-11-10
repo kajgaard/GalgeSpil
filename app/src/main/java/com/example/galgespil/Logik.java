@@ -28,6 +28,7 @@ public class Logik {
 
         public Logik() {
 
+
             muligeOrd.add("bil");
             muligeOrd.add("computer");
             muligeOrd.add("programmering");
@@ -109,7 +110,7 @@ public class Logik {
                 if (brugteBogstaver.contains(bogstav)) {
                     synligtOrd = synligtOrd + bogstav;
                 } else {
-                    synligtOrd = synligtOrd + "*";
+                    synligtOrd = synligtOrd + "_";
                     spilletErVundet = false;
                 }
             }

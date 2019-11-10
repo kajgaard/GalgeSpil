@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.CycleInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
@@ -93,24 +96,32 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
 
         }else if (v == gemHighscore){
 
-            Score person = new Score(skrivNavn.getText().toString(),udregnScore());
-            Logik.highScoreList.add(person);
-            //person.setNavn(""+skrivNavn.getText());
-            //person.setScore(udregnScore());
+            if(!(skrivNavn.getText().toString().trim().length() > 0)){
+                skrivNavn.startAnimation(shakeError());
+                Toast.makeText(this, "Indtast dit navn for at gemme!", Toast.LENGTH_SHORT).show();
+                return;
+            }else{
+                Score person = new Score(skrivNavn.getText().toString(),udregnScore());
+                Logik.highScoreList.add(person);
+                //person.setNavn(""+skrivNavn.getText());
+                //person.setScore(udregnScore());
 
-            gemData();
+                gemData();
 
 
-            gemHighscore.setEnabled(false);
+                gemHighscore.setEnabled(false);
 
-            //gemmer keyboardet når gem knap trykkes
-            skrivNavn.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                //gemmer keyboardet når gem knap trykkes
+                skrivNavn.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
-            logik.erListeTom = false;
+                logik.erListeTom = false;
 
-            Snackbar snackbar = Snackbar
-                    .make(findViewById(android.R.id.content), "Highscore gemt!", Snackbar.LENGTH_SHORT);
-            snackbar.show();
+                Snackbar snackbar = Snackbar
+                        .make(findViewById(android.R.id.content), "Highscore gemt!", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+
+            }
+
 
         }
     }
@@ -148,4 +159,13 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         point = 1000 - resultTime - (penalty*10);
         return point;
     }
+
+
+    public TranslateAnimation shakeError() {
+        TranslateAnimation shake = new TranslateAnimation(0, 10, 0, 0);
+        shake.setDuration(500);
+        shake.setInterpolator(new CycleInterpolator(7));
+        return shake;
+    }
+
 }

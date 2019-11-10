@@ -122,13 +122,13 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         liv = findViewById(R.id.antalLiv);
         liv.setText("6");
-        tid = findViewById(R.id.tid);
+
 
         ukendtOrd = findViewById(R.id.spgtext);
         ukendtOrd.setText(logik.getSynligtOrd());
 
         tid = findViewById(R.id.tid);
-        tid.setText("0.00");
+        tid.setText("0");
 
         hangman = findViewById(R.id.hangman);
         hangman.setImageResource(R.drawable.galge);
