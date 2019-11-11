@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/dummyKnap1"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="150dp"
         android:text="UX...."
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
     <Button
         android:id="@+id/dummyKnap2"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="UX...."
         app:layout_constraintBottom_toTopOf="@+id/sletDataknap"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,9 +43,9 @@
     <Button
         android:id="@+id/sletDataknap"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="slet data"
+        android:layout_height="60dp"
         android:backgroundTint="@color/colorSlet"
+        android:text="slet data"
         app:layout_constraintBottom_toTopOf="@+id/tilHovedfraInd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -55,7 +55,7 @@
     <Button
         android:id="@+id/tilHovedfraInd"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginBottom="150dp"
         android:text="til hovedmenu"
         app:layout_constraintBottom_toBottomOf="parent"

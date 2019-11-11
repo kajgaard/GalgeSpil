@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/tilHovedmenu"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="100dp"
         android:text="Hovedmenu"
@@ -21,7 +21,7 @@
     <Button
         android:id="@+id/spilIgenKnap"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="40dp"
         android:text="spil igen"
         app:layout_constraintBottom_toTopOf="@+id/tilHovedmenu"
@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Tillykke du har vundet"
+        android:text="Du har vundet!"
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
