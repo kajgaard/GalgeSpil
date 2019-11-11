@@ -19,7 +19,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     static Logik logik = new Logik();
     StopUr stopUr = new StopUr();
     Button a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p , q, r, s, t, u, ve, w, x, y, z, ae, oe, aa;
-    //Button afslutKnap;
+    Button afslutKnap;
     TextView ukendtOrd, liv, tid;
     ImageView hangman, hjerte;
     Runnable opdaterTid;
@@ -120,8 +120,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         aa.setOnClickListener(this);
 
 
-        //afslutKnap = findViewById(R.id.afslutKnap);
-        //afslutKnap.setOnClickListener(this);
+        afslutKnap = findViewById(R.id.afslutKnap);
+        afslutKnap.setOnClickListener(this);
 
         liv = findViewById(R.id.antalLiv);
         liv.setText("6");
@@ -139,8 +139,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         hjerte = findViewById(R.id.hearts);
         hjerte.setImageResource(R.drawable.heart3);
 
-        cancel1 = findViewById(R.id.cancelIcon);
-        cancel1.setOnClickListener(this);
+        //cancel1 = findViewById(R.id.cancelIcon);
+        //cancel1.setOnClickListener(this);
 
 
 
@@ -298,7 +298,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
 
 
-        /*}else if(v == afslutKnap) {
+        }else if(v == afslutKnap) {
 
             //TODO: want to have fragment
             //visPauseskærm();
@@ -310,7 +310,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             finish();
 
 
-         */
+         /*
 
         }else if(v == cancel1){
 
@@ -318,6 +318,8 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             i.putExtra("status", "Øv! Du gav op!");
             this.startActivity(i);
             finish();
+
+          */
         }
         opdaterSkærm();
 

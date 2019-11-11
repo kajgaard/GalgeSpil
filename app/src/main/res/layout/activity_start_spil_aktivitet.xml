@@ -297,6 +297,16 @@
         app:layout_constraintStart_toEndOf="@+id/buttonU"
         app:layout_constraintTop_toTopOf="@+id/buttonU" />
 
+    <Button
+        android:id="@+id/afslutKnap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="afslut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hangman"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/hangman"
         android:layout_width="wrap_content"
@@ -350,14 +360,5 @@
         app:layout_constraintEnd_toEndOf="@+id/hearts"
         app:layout_constraintStart_toStartOf="@+id/hearts"
         app:layout_constraintTop_toTopOf="@+id/hearts" />
-
-    <ImageView
-        android:id="@+id/cancelIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hangman"
-        app:layout_constraintTop_toTopOf="@+id/hangman"
-        app:srcCompat="@drawable/cancel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
