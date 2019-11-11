@@ -11,5 +11,9 @@ Spillet går derfor ud på at gætte hele ordet inden tegningen bliver færdiggj
 Spillet foregår på tid, og tiden trækkes fra den samlede score, på samme måde som antallet af forkerte bogstaver.\n
 Såfremt spillet vindes er det muligt at gemme sin highscore.\n\n
 
-Strategien i spillet går ud på at gætte på de bogstaver, der bruges hyppigst på det respektive sprog. Dvs. at bogstaver som e, s, r og t typisk optræder i danske ord. </string>
+Strategien i spillet går ud på at gætte på de bogstaver, der bruges hyppigst på det respektive sprog. Dvs. at bogstaver som e, s, r og t typisk optræder i danske ord.
+        \n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        \n Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 </resources>
