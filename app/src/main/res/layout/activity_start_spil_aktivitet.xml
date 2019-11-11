@@ -297,27 +297,12 @@
         app:layout_constraintStart_toEndOf="@+id/buttonU"
         app:layout_constraintTop_toTopOf="@+id/buttonU" />
 
-    <Button
-        android:id="@+id/afslutKnap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="3dp"
-        android:text="afslut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/hangman"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/hangman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="9dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/afslutKnap"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/forkert6" />
@@ -329,7 +314,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/hangman"
         app:layout_constraintTop_toBottomOf="@+id/hangman"
-        app:srcCompat="@drawable/heart1" />
+        app:srcCompat="@drawable/heart3" />
 
     <TextView
         android:id="@+id/tid"
@@ -365,5 +350,14 @@
         app:layout_constraintEnd_toEndOf="@+id/hearts"
         app:layout_constraintStart_toStartOf="@+id/hearts"
         app:layout_constraintTop_toTopOf="@+id/hearts" />
+
+    <ImageView
+        android:id="@+id/cancelIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/hangman"
+        app:layout_constraintTop_toTopOf="@+id/hangman"
+        app:srcCompat="@drawable/cancel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
