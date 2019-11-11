@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/hangman"
         android:supportsRtl="true"
         android:screenOrientation="portrait"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MariasTheme">
         <activity android:name=".TomHighScoreAktivitet"></activity>
         <activity android:name=".TabtSpilAktivitet" />
         <activity android:name=".HighscoresAktivitet" />

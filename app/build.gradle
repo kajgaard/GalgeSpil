@@ -13,11 +13,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            applicationIdSuffix = 'test'
-            versionNameSuffix = 'testtest'
-            signingConfig signingConfigs.debug
+            minifyEnabled false
+
         }
     }
 }
