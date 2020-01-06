@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
@@ -35,6 +36,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
     TextView ordGættet, tidSlut, status, score, forkerteBog;
     EditText skrivNavn;
     KonfettiView viewKonfetti;
+    MediaPlayer player;
 
 
 
@@ -53,6 +55,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         String statusFraSpil = getIntent().getStringExtra("status");
         String tidFraSpil = getIntent().getStringExtra("tid");
 
+        player = MediaPlayer.create(this,R.raw.congratuationsvoice);
 
         tilHovedmenu = findViewById(R.id.tilHovedmenu);
         tilHovedmenu.setOnClickListener(this);
@@ -190,6 +193,12 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
     }
+
+    /*public void play(View v){
+        Mediaplayer.
+    }
+
+     */
 
 
 }
