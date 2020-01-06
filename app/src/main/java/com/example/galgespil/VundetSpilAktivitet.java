@@ -1,11 +1,11 @@
 package com.example.galgespil;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
@@ -15,13 +15,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Shape;
 
 import static com.example.galgespil.StartSpilAktivitet.logik;
 
@@ -31,6 +34,9 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
     Button tilHovedmenu, spilIgen, gemHighscore;
     TextView ordGættet, tidSlut, status, score, forkerteBog;
     EditText skrivNavn;
+    KonfettiView viewKonfetti;
+
+
 
 
     int point = 0;
@@ -39,6 +45,8 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         setContentView(R.layout.activity_vundet_spil_aktivitet);
 
@@ -73,7 +81,20 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         skrivNavn = findViewById(R.id.skrivNavn);
         skrivNavn.setHint("Dit navn");
 
+        //Nedenstående kodestykke er fra https://android-arsenal.com/details/1/5884#!description, jeg har ikke personliggjort det helt vildt, da det er skrevet i kotlin, så kan ikke helt finde ud af hvordan mulighederne er
 
+        final KonfettiView konfettiView = findViewById(R.id.viewKonfetti);
+        konfettiView.build()
+                .addColors(Color.rgb(234, 117, 240), Color.rgb(36, 240, 192), Color.rgb(245, 152, 66), Color.rgb(
+                        66, 173, 245
+                ), Color.rgb(245, 78, 66))
+                .setSpeed(2f, 8f)
+                .setFadeOutEnabled(true)
+                .setTimeToLive(2000L)
+                .addShapes(Shape.RECT, Shape.CIRCLE)
+                .setPosition(0f, 359f, -359f, 0f)
+                .setDirection(0,359)
+                .stream(200, 1500L);
     }
 
 
@@ -165,5 +186,10 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         shake.setInterpolator(new CycleInterpolator(7));
         return shake;
     }
+
+    public static int getScreenWidth() {
+        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    }
+
 
 }

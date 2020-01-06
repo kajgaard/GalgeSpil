@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorStartSpil">#C9F5E7</color>
     <color name="colorSlet">#ff8a9f</color>
+    <color name="colorKonf1">#f2d0e8</color>
+    <color name="colorKonf2">#d0f2ea</color>
 </resources>
