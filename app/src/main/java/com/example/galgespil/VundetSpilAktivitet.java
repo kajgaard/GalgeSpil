@@ -87,7 +87,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         konfettiView.build()
                 .addColors(Color.rgb(234, 117, 240), Color.rgb(36, 240, 192), Color.rgb(245, 152, 66), Color.rgb(
                         66, 173, 245
-                ), Color.rgb(245, 78, 66))
+                ), Color.rgb(245, 78, 66), Color.rgb(99, 191, 78))
                 .setSpeed(2f, 8f)
                 .setFadeOutEnabled(true)
                 .setTimeToLive(2000L)
