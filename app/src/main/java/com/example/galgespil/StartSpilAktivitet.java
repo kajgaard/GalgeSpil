@@ -134,7 +134,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         tid.setText("0");
 
         hangman = findViewById(R.id.hangman);
-        hangman.setImageResource(R.drawable.galge);
+        hangman.setImageResource(R.drawable.galgepng);
 
         hjerte = findViewById(R.id.hearts);
         hjerte.setImageResource(R.drawable.heart3);
@@ -334,17 +334,17 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
         //Tegn manden lidt efter lidt
         if(getAntalLiv() == 5){
-            hangman.setImageResource(R.drawable.forkert1);
+            hangman.setImageResource(R.drawable.forkert1png);
         } else if (getAntalLiv() == 4){
-            hangman.setImageResource(R.drawable.forkert2);
+            hangman.setImageResource(R.drawable.forkert2png);
         } else if (getAntalLiv() == 3){
-            hangman.setImageResource(R.drawable.forkert3);
+            hangman.setImageResource(R.drawable.forkert3png);
         } else if(getAntalLiv() == 2){
-            hangman.setImageResource(R.drawable.forkert4);
+            hangman.setImageResource(R.drawable.forkert4png);
         } else if (getAntalLiv() == 1) {
-            hangman.setImageResource(R.drawable.forkert5);
+            hangman.setImageResource(R.drawable.forkert5png);
         } else if (getAntalLiv() == 0){
-            hangman.setImageResource(R.drawable.forkert6);
+            hangman.setImageResource(R.drawable.forkert6png);
         }
 
         if (logik.erSpilletVundet()) {
