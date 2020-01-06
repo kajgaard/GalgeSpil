@@ -56,6 +56,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         String tidFraSpil = getIntent().getStringExtra("tid");
 
         player = MediaPlayer.create(this,R.raw.congratuationsvoice);
+        player.start();
 
         tilHovedmenu = findViewById(R.id.tilHovedmenu);
         tilHovedmenu.setOnClickListener(this);
