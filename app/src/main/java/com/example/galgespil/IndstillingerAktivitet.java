@@ -17,9 +17,10 @@ import com.google.android.material.snackbar.Snackbar;
 import static com.example.galgespil.StartSpilAktivitet.logik;
 
 public class IndstillingerAktivitet extends AppCompatActivity implements View.OnClickListener {
-Button hovedmenu, rydData;
+Button hovedmenu, rydData, ordFraDR;
     private Context context;
     CoordinatorLayout coordinatorLayout;
+    public Boolean skalOrdHentes = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,13 @@ Button hovedmenu, rydData;
 
         rydData = findViewById(R.id.sletDataknap);
         rydData.setOnClickListener(this);
+
+        ordFraDR = findViewById(R.id.dummyKnap1);
+        ordFraDR.setText("Ord fra DR = NEJ");
+        ordFraDR.setOnClickListener(this);
+
+
+
 
 
 
@@ -56,6 +64,18 @@ Button hovedmenu, rydData;
 
             Toast.makeText(this, "Data slettet!", Toast.LENGTH_SHORT).show();
 
+
+
+        }else if(v == ordFraDR){
+
+            if(skalOrdHentes == true){
+                ordFraDR.setText("Ord fra DR = NEJ");
+                skalOrdHentes = false;
+
+            } else {
+                skalOrdHentes = true;
+                ordFraDR.setText("Ord fra DR = JA");
+            }
 
 
         }

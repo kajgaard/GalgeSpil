@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AfbrudtSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
 
     Button tilHovedmenu, spilIgen;
-    TextView ordGættet, tidSlut, status, forkerteBog;
+    TextView ordGættet, status;
     MediaPlayer player;
 
     @Override
