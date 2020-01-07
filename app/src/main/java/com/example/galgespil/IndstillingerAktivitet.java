@@ -34,7 +34,16 @@ Button hovedmenu, rydData, ordFraDR;
         rydData.setOnClickListener(this);
 
         ordFraDR = findViewById(R.id.dummyKnap1);
-        ordFraDR.setText("Ord fra DR = NEJ");
+
+        if(Logik.skalOrdHentes){
+            ordFraDR.setText("Ord fra DR = JA");
+
+        }else{
+            ordFraDR.setText("Ord fra DR = NEJ");
+
+        }
+
+
         ordFraDR.setOnClickListener(this);
 
 
@@ -71,6 +80,20 @@ Button hovedmenu, rydData, ordFraDR;
             if(Logik.skalOrdHentes == true){
                 ordFraDR.setText("Ord fra DR = NEJ");
                 Logik.skalOrdHentes = false;
+                logik.muligeOrd.clear();
+                logik.muligeOrd.add("bil");
+                logik.muligeOrd.add("computer");
+                logik.muligeOrd.add("programmering");
+                logik.muligeOrd.add("motorvej");
+                logik.muligeOrd.add("busrute");
+                logik.muligeOrd.add("gangsti");
+                logik.muligeOrd.add("skovsnegl");
+                logik.muligeOrd.add("solsort");
+                logik.muligeOrd.add("nitten");
+
+                System.out.println("muligeOrd = " + logik.muligeOrd);
+
+                logik.nulstil();
 
             } else {
                 Logik.skalOrdHentes = true;
