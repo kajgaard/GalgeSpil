@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,8 +15,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.text.DecimalFormat;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -32,6 +31,10 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     ImageButton cancel;
     ImageView cancel1;
     IndstillingerAktivitet indstillinger;
+    String exception = null;
+    Boolean success;
+    Context mContext = this;
+
 
     @SuppressLint("StaticFieldLeak")
     @Override
@@ -44,24 +47,38 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             ukendtOrd.setText("Henter ord fra DR...");
             new AsyncTask(){
 
+                @SuppressWarnings("unchecked")
                 @Override
                 protected Object doInBackground(Object[] objects) {
 
                     try{
                         logik.hentOrdFraDr();
+                        success = true;
                         return "Hent af ord gennemført";
 
                     } catch (Exception ex) {
                         ex.printStackTrace();
-                        //printexeption(ex);
+                        exception = ex.getMessage();
+                        success = false;
+                        //publishProgress(ex);
 
                         return "Hent af ord ikke gennemført" + ex;
                     }
+
                 }
+
 
                 @Override
                 protected void onPostExecute(Object o) {
                     ukendtOrd.setText(""+ logik.getSynligtOrd());
+
+                    if(success == false){
+                        Toast.makeText(mContext, "Kunne ikke hente ord fra DR... Fejl: " + exception, Toast.LENGTH_LONG).show();
+                    }
+
+                    if(success == true){
+                        Toast.makeText(mContext, "Successfuldt hentet ord fra DR " + exception, LENGTH_SHORT).show();
+                    }
 
                 }
             }.execute();
@@ -69,7 +86,13 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
             ukendtOrd.setText(logik.getSynligtOrd());
 
+
+
         }
+
+
+
+
 
 
         a = findViewById(R.id.buttonA);
@@ -190,8 +213,9 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
     }
 
-    private void printexeption(Exception e) {
-        Toast.makeText(this, "Kunne ikke hente ord fra DR" + e, LENGTH_SHORT).show();
+
+    private static void printexception(Context context, String e) {
+        Toast.makeText(context, "Kunne ikke hente ord fra DR: " + e, LENGTH_SHORT).show();
         return;
     }
 
