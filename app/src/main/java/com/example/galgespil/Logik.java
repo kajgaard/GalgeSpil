@@ -21,6 +21,7 @@ public class Logik {
         private boolean spilletErVundet;
         private boolean spilletErTabt;
         public Boolean erListeTom = false;
+        public static Boolean skalOrdHentes = false;
 
         static ArrayList<Score> highScoreList = new ArrayList<>();
 

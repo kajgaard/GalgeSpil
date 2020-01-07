@@ -20,7 +20,7 @@ public class IndstillingerAktivitet extends AppCompatActivity implements View.On
 Button hovedmenu, rydData, ordFraDR;
     private Context context;
     CoordinatorLayout coordinatorLayout;
-    public Boolean skalOrdHentes = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +68,12 @@ Button hovedmenu, rydData, ordFraDR;
 
         }else if(v == ordFraDR){
 
-            if(skalOrdHentes == true){
+            if(Logik.skalOrdHentes == true){
                 ordFraDR.setText("Ord fra DR = NEJ");
-                skalOrdHentes = false;
+                Logik.skalOrdHentes = false;
 
             } else {
-                skalOrdHentes = true;
+                Logik.skalOrdHentes = true;
                 ordFraDR.setText("Ord fra DR = JA");
             }
 

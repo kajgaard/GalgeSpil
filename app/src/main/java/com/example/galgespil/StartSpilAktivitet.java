@@ -3,7 +3,9 @@ package com.example.galgespil;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -11,8 +13,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 
 public class StartSpilAktivitet extends AppCompatActivity implements View.OnClickListener {
@@ -26,11 +31,46 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     Handler handler = new Handler();
     ImageButton cancel;
     ImageView cancel1;
+    IndstillingerAktivitet indstillinger;
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_spil_aktivitet);
+        ukendtOrd = findViewById(R.id.spgtext);
+
+        if(Logik.skalOrdHentes){
+            ukendtOrd.setText("Henter ord fra DR...");
+            new AsyncTask(){
+
+                @Override
+                protected Object doInBackground(Object[] objects) {
+
+                    try{
+                        logik.hentOrdFraDr();
+                        return "Hent af ord gennemført";
+
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                        //printexeption(ex);
+
+                        return "Hent af ord ikke gennemført" + ex;
+                    }
+                }
+
+                @Override
+                protected void onPostExecute(Object o) {
+                    ukendtOrd.setText(""+ logik.getSynligtOrd());
+
+                }
+            }.execute();
+        }else{
+
+            ukendtOrd.setText(logik.getSynligtOrd());
+
+        }
+
 
         a = findViewById(R.id.buttonA);
         a.setOnClickListener(this);
@@ -127,8 +167,6 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         liv.setText("6");
 
 
-        ukendtOrd = findViewById(R.id.spgtext);
-        ukendtOrd.setText(logik.getSynligtOrd());
 
         tid = findViewById(R.id.tid);
         tid.setText("0");
@@ -150,6 +188,11 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         //TODO: Stopuret virker, men ikke med millisekunder FIX pls
 
 
+    }
+
+    private void printexeption(Exception e) {
+        Toast.makeText(this, "Kunne ikke hente ord fra DR" + e, LENGTH_SHORT).show();
+        return;
     }
 
     @Override
