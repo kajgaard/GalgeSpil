@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/tilHovedmenu"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
         android:text="Hovedmenu"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
     <Button
         android:id="@+id/spilIgenKnap"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="100dp"
         android:text="spil igen"
         app:layout_constraintEnd_toEndOf="parent"

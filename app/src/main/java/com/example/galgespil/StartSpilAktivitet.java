@@ -67,7 +67,6 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
                 }
 
-
                 @Override
                 protected void onPostExecute(Object o) {
                     ukendtOrd.setText(""+ logik.getSynligtOrd());
@@ -82,6 +81,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
                 }
             }.execute();
+            Logik.skalOrdHentes = false;
         }else{
 
             ukendtOrd.setText(logik.getSynligtOrd());
