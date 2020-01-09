@@ -26,6 +26,7 @@ public class Logik {
         static ArrayList<Score> highScoreList = new ArrayList<>();
 
 
+        //Der er ikke rigtigt sket det vilde i denne klasse, derfor har jeg ikke revideret den
 
         public Logik() {
 

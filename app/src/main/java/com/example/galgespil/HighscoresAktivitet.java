@@ -16,29 +16,18 @@ public class HighscoresAktivitet extends AppCompatActivity {
     ListView listView;
 
 
-
-    ArrayList<Score> mListe = new ArrayList<>();
-
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscores_aktivitet);
 
-
-
         listView = findViewById(R.id.listView);
 
+        //Hent data gemt lokalt på telefonen
         loadData();
 
         //Se note i subklasse
         //Logik.highScoreList.sort(new ScoreSorter());
-
 
 
         ScoreListAdapter adapter = new ScoreListAdapter(this,R.layout.list_item_adapter,Logik.highScoreList);
@@ -65,7 +54,7 @@ public class HighscoresAktivitet extends AppCompatActivity {
 
 
 /*
-Virker kun med min API 26 og tlf er 21
+Virker kun med min API 26 og lånetlf er 21. Scorelisten er derfor ikke sorteret.
 public class ScoreSorter implements Comparator<Score>
 {
 

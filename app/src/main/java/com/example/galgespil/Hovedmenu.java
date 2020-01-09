@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -23,15 +21,13 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
+        //Bruges i denne aktivitet for at tjekke hvorvidt der overhovedet er noget gemt lokalt på
+        // telefonen. For derfor at bruge variablen erListeTom til at finde ud af om der ved tryk
+        // på highscores skal startes HighscoresAktivitet, eller TomHighscoreAktivitet
         loadData();
-
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -50,8 +46,6 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
 
         velkomst = findViewById(R.id.textView);
         velkomst.setText("Velkommen til Hangman!");
-
-
 
     }
 
@@ -83,15 +77,16 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
             Intent i = new Intent(this,StartSpilAktivitet.class);
             this.startActivity(i);
 
-
         } else if (v == hjælpKnap) {
 
             Intent i = new Intent(this, HjælpAktivitet.class);
             this.startActivity(i);
+
         } else if (v == indstillingerKnap){
 
             Intent i = new Intent(this,IndstillingerAktivitet.class);
             this.startActivity(i);
+
         } else if (v == highscoresKnap){
 
             if(!erListeTom) {
@@ -101,8 +96,6 @@ public class Hovedmenu extends AppCompatActivity implements View.OnClickListener
                 Intent i = new Intent(this, TomHighScoreAktivitet.class);
                 this.startActivity(i);
             }
-
-
 
         }
 

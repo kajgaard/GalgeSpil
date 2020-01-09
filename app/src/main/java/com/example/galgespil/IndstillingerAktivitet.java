@@ -1,25 +1,19 @@
 package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 
 import static com.example.galgespil.StartSpilAktivitet.logik;
 
 public class IndstillingerAktivitet extends AppCompatActivity implements View.OnClickListener {
 Button hovedmenu, rydData, ordFraDR;
-    private Context context;
-    CoordinatorLayout coordinatorLayout;
 
 
     @Override
@@ -43,26 +37,19 @@ Button hovedmenu, rydData, ordFraDR;
 
         }
 
-
         ordFraDR.setOnClickListener(this);
-
-
-
-
-
-
 
     }
 
     @Override
     public void onClick(View v) {
+
         if(v==hovedmenu){
+
             Intent i = new Intent(this, Hovedmenu.class);
             this.startActivity(i);
 
         }else if (v == rydData){
-
-
 
             SharedPreferences settings = getApplicationContext().getSharedPreferences("shared preferences", Context.MODE_PRIVATE);
             settings.edit().remove("highscores").apply();
@@ -70,10 +57,7 @@ Button hovedmenu, rydData, ordFraDR;
             //må ikke slettes ellers kaos
             logik.highScoreList.removeAll(logik.highScoreList);
 
-
             Toast.makeText(this, "Data slettet!", Toast.LENGTH_SHORT).show();
-
-
 
         }else if(v == ordFraDR){
 
@@ -81,6 +65,8 @@ Button hovedmenu, rydData, ordFraDR;
                 ordFraDR.setText("Ord fra DR = NEJ");
                 Logik.skalOrdHentes = false;
                 logik.muligeOrd.clear();
+
+                //Ikke smart løsning - men det virker
                 logik.muligeOrd.add("bil");
                 logik.muligeOrd.add("computer");
                 logik.muligeOrd.add("programmering");
@@ -96,10 +82,11 @@ Button hovedmenu, rydData, ordFraDR;
                 logik.nulstil();
 
             } else {
+
                 Logik.skalOrdHentes = true;
                 ordFraDR.setText("Ord fra DR = JA");
-            }
 
+            }
 
         }
     }

@@ -1,9 +1,6 @@
 package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,26 +24,23 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
     ImageView hangman, hjerte;
     Runnable opdaterTid;
     Handler handler = new Handler();
-    ImageButton cancel;
-    ImageView cancel1;
-    IndstillingerAktivitet indstillinger;
     String exception = null;
     Boolean success;
     Context mContext = this;
 
 
-    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_spil_aktivitet);
         ukendtOrd = findViewById(R.id.spgtext);
 
+        //Jeg aner simpelthen ikke hvorfor jeg ikke kan løse understående warning.. :(
+
         if(Logik.skalOrdHentes){
             ukendtOrd.setText("Henter ord fra DR...");
             new AsyncTask(){
 
-                @SuppressWarnings("unchecked")
                 @Override
                 protected Object doInBackground(Object[] objects) {
 
@@ -76,7 +69,7 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
                     }
 
                     if(success == true){
-                        Toast.makeText(mContext, "Successfuldt hentet ord fra DR " + exception, LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "Successfuldt hentet ord fra DR ", LENGTH_SHORT).show();
                     }
 
                 }
@@ -86,14 +79,10 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
 
             ukendtOrd.setText(logik.getSynligtOrd());
 
-
-
         }
 
-
-
-
-
+        //Måske findes der en smartere løsning til dette - men indtil videre er dette en lang klasse :)
+        //Grunden er jo fordi at jeg valgte at lave mit eget tastatur, da jeg syntes det var fedt.
 
         a = findViewById(R.id.buttonA);
         a.setOnClickListener(this);
@@ -182,14 +171,11 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         aa = findViewById(R.id.buttonAA);
         aa.setOnClickListener(this);
 
-
         afslutKnap = findViewById(R.id.afslutKnap);
         afslutKnap.setOnClickListener(this);
 
         liv = findViewById(R.id.antalLiv);
         liv.setText("6");
-
-
 
         tid = findViewById(R.id.tid);
         tid.setText("0");
@@ -200,28 +186,22 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         hjerte = findViewById(R.id.hearts);
         hjerte.setImageResource(R.drawable.heart3);
 
-        //cancel1 = findViewById(R.id.cancelIcon);
-        //cancel1.setOnClickListener(this);
-
-
-
+        //Stopuret her bruget egentlig kun til at få den samlede tid. Optællingen af sekunder som
+        // foregår når spillet spilles er fra en metode som jeg selv har skrevet.
+        //Lidt unødigt med metoder med samme funktion, men min egen metode svinger nogle gange
+        // med 1 sekund (fordi den runder op tænker jeg) når tiden skulle sendes til VundetspilAktivitet.
         stopUr.start();
 
+        //Sørg for tid bliver opdateret hvert sekund
         opdaterTidMetode();
-        //TODO: Stopuret virker, men ikke med millisekunder FIX pls
-
 
     }
 
-
-    private static void printexception(Context context, String e) {
-        Toast.makeText(context, "Kunne ikke hente ord fra DR: " + e, LENGTH_SHORT).show();
-        return;
-    }
 
     @Override
     public void onClick(View v) {
 
+        //Igen - mange gentagelser
         if(v == a){
             String bogstav = a.getText().toString().toLowerCase();
             logik.gætBogstav(bogstav);
@@ -363,34 +343,16 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
             aa.setEnabled(false);
 
 
-
-
         }else if(v == afslutKnap) {
 
-            //TODO: want to have fragment
-            //visPauseskærm();
-
-
             Intent i = new Intent(this, AfbrudtSpilAktivitet.class);
             i.putExtra("status", "Øv! Du gav op!");
             this.startActivity(i);
             finish();
 
-
-         /*
-
-        }else if(v == cancel1){
-
-            Intent i = new Intent(this, AfbrudtSpilAktivitet.class);
-            i.putExtra("status", "Øv! Du gav op!");
-            this.startActivity(i);
-            finish();
-
-          */
         }
+
         opdaterSkærm();
-
-
 
     }
 
@@ -438,26 +400,24 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         }
     }
 
-    //OBS Har selv tilføjet
+    //Mist 1 liv for hvert bogstav der bliver gættet forkert
     public int getAntalLiv(){
         int antalLiv = 6 - logik.getAntalForkerteBogstaver();
-        return antalLiv;}
+        return antalLiv;
+    }
 
 
     public void opdaterTidMetode(){
 
-
-
         opdaterTid = new Runnable() {
 
             int antalSekunderGaaet = 0;
-            //String string = new DecimalFormat("#,#").format(antalSekunderGaaet);
 
             public void run() {
-                if (logik.erSpilletVundet() != true || logik.erSpilletTabt() != true) {
+
+                if (!logik.erSpilletVundet() || !logik.erSpilletTabt()) {
                     antalSekunderGaaet++;
                     tid.setText(""+antalSekunderGaaet);
-
 
                     handler.postDelayed(this, 1000); // udfør denne Runnable igen om 1 sekund
                 }
@@ -465,10 +425,6 @@ public class StartSpilAktivitet extends AppCompatActivity implements View.OnClic
         };
         handler.postDelayed(opdaterTid, 1000); // udfør om 1 sekund
     }
-    private void visPauseskærm() {
-        FragmentManager fm = getSupportFragmentManager();
-        PauseFragment PopUp = new PauseFragment();
-        PopUp.show(fm, "PauseSkærm");
-    }
+
 
 }

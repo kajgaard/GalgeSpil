@@ -24,6 +24,7 @@ public class TabtSpilAktivitet extends AppCompatActivity implements View.OnClick
         player = MediaPlayer.create(this,R.raw.failsound);
         player.start();
 
+        //Status er kendt, da denne aktivitet ellers ikke ville været starter, men det var for at øve put-/getExtra
         String statusFraSpil = getIntent().getStringExtra("status");
         String tidFraSpil = getIntent().getStringExtra("tid");
 

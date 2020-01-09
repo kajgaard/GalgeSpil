@@ -1,17 +1,9 @@
 package com.example.galgespil;
 
-import androidx.annotation.NonNull;
-
-import java.util.ArrayList;
-
 public class Score {
 
     String navn;
     int score;
-
-
-
-
 
 
     public Score(String navn, int score){
@@ -19,8 +11,7 @@ public class Score {
         this.score = score;
     }
 
-
-
+        //Getters og setters
         public String getNavn() {
             return navn;
         }

@@ -6,16 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class ScoreListAdapter extends ArrayAdapter<Score> {
+
+    //Denne klasse er lavet med inspiration/hjælp fra https://www.youtube.com/watch?v=E6vE8fqQPTE
 
     private Context mContext;
     int mResource;
@@ -26,8 +23,6 @@ public class ScoreListAdapter extends ArrayAdapter<Score> {
         mContext = context;
         mResource = resource;
 
-
-
     }
 
     @NonNull
@@ -36,8 +31,6 @@ public class ScoreListAdapter extends ArrayAdapter<Score> {
 
         String navn = getItem(position).getNavn();
         String score = ""+getItem(position).getScore();
-
-        //Score nyScore = new Score(navn,score);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
@@ -53,13 +46,7 @@ public class ScoreListAdapter extends ArrayAdapter<Score> {
         placering++;
         tvplacering.setText("" + placering);
 
-
-
-
         return convertView;
-
-
-
 
 
     }

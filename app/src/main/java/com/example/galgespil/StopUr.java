@@ -21,19 +21,6 @@ public class StopUr {
     }
 
 
-
-    //elaspsed time in milliseconds
-    public long getElapsedTime() {
-        long elapsed;
-        if (running) {
-            elapsed = (System.currentTimeMillis() - startTime);
-        } else {
-            elapsed = (stopTime - startTime);
-        }
-        return elapsed;
-    }
-
-
     //elaspsed time in seconds
     public long getElapsedTimeSecs() {
         long elapsed;

@@ -1,7 +1,6 @@
 package com.example.galgespil;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +10,8 @@ public class TomHighScoreAktivitet extends AppCompatActivity implements View.OnC
 
     Button lavHighScoreKnap;
 
+    //Jeg har lavet denne her klasse for at lave spillet mere indbydende hvis der spilles første gang
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +19,6 @@ public class TomHighScoreAktivitet extends AppCompatActivity implements View.OnC
 
         lavHighScoreKnap = findViewById(R.id.thStartSpilKnap);
         lavHighScoreKnap.setOnClickListener(this);
-
 
 
     }

@@ -21,9 +21,13 @@ public class AfbrudtSpilAktivitet extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afbrudt_spil_aktivitet);
 
+        //Afspil lyd når aktiviteten startes
         player = MediaPlayer.create(this,R.raw.failsound);
         player.start();
 
+        //Finde tekst der siger hvorvidt brugeren har tabt eller vundet (egentlig ikke vigtigt da
+        // spilleren kun kan have tabt når denne aktivitet startes, men det er bare for at vise
+        // jeg kan bruge getExtra :) )
         String statusFraSpil = getIntent().getStringExtra("status");
 
 
@@ -51,6 +55,7 @@ public class AfbrudtSpilAktivitet extends AppCompatActivity implements View.OnCl
             StartSpilAktivitet.logik.nulstil();
 
             finish();
+
         } else if (v == spilIgen) {
             Intent i = new Intent(this, StartSpilAktivitet.class);
             this.startActivity(i);

@@ -2,11 +2,9 @@ package com.example.galgespil;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
@@ -15,15 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-
 import nl.dionsegijn.konfetti.KonfettiView;
 import nl.dionsegijn.konfetti.models.Shape;
 
@@ -35,26 +26,21 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
     Button tilHovedmenu, spilIgen, gemHighscore;
     TextView ordGættet, tidSlut, status, score, forkerteBog;
     EditText skrivNavn;
-    KonfettiView viewKonfetti;
     MediaPlayer player;
 
-
-
-
     int point = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-
         setContentView(R.layout.activity_vundet_spil_aktivitet);
 
+        //Status er kendt, da denne aktivitet ellers ikke ville været starter, men det var for at øve put-/getExtra
         String statusFraSpil = getIntent().getStringExtra("status");
         String tidFraSpil = getIntent().getStringExtra("tid");
 
+        //Lyd spilles når aktiviteten begyndes
         player = MediaPlayer.create(this,R.raw.congratuationsvoice);
         player.start();
 
@@ -85,7 +71,9 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         skrivNavn = findViewById(R.id.skrivNavn);
         skrivNavn.setHint("Dit navn");
 
-        //Nedenstående kodestykke er fra https://android-arsenal.com/details/1/5884#!description, jeg har ikke personliggjort det helt vildt, da det er skrevet i kotlin, så kan ikke helt finde ud af hvordan mulighederne er
+        //Nedenstående kodestykke er fra https://android-arsenal.com/details/1/5884#!description,
+        // jeg har personliggjort det lidt, men det er begrænset da det er skrevet i kotlin, så kan ikke helt
+        // finde ud af hvordan mulighederne er
 
         final KonfettiView konfettiView = findViewById(R.id.viewKonfetti);
         konfettiView.build()
@@ -120,7 +108,8 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
 
 
         }else if (v == gemHighscore){
-
+            //Hvis brugeren prøver at gemme uden at have indtastet et navn, så vises der
+            // fejlbesked i Toast og en animation af Edittext
             if(!(skrivNavn.getText().toString().trim().length() > 0)){
                 skrivNavn.startAnimation(shakeError());
                 Toast.makeText(this, "Indtast dit navn for at gemme!", Toast.LENGTH_SHORT).show();
@@ -128,12 +117,11 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
             }else{
                 Score person = new Score(skrivNavn.getText().toString(),udregnScore());
                 Logik.highScoreList.add(person);
-                //person.setNavn(""+skrivNavn.getText());
-                //person.setScore(udregnScore());
 
                 gemData();
 
-
+                //Gør sådan så knappen kun kan trykkes på én gang. Da brugeren ellers ville
+                // kunne gemme samme score flere gange
                 gemHighscore.setEnabled(false);
 
                 //gemmer keyboardet når gem knap trykkes
@@ -149,6 +137,7 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         }
     }
 
+    //Gemner data lokalt på telefonen.
     public void gemData(){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -157,49 +146,31 @@ public class VundetSpilAktivitet extends AppCompatActivity implements View.OnCli
         editor.putString("highscores",json);
         editor.apply();
 
+        //Så kan der heller ikke skrives i editText når først én highscore er gemt. Det er bare
+        // 'federe' at både knap og edittext gøres "u-trykbare"
         skrivNavn.setEnabled(false);
     }
 
-    private void loadData(){
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("highscores",null);
-        Type type = new TypeToken<ArrayList<Score>>() {}.getType();
-        Logik.highScoreList = gson.fromJson(json,type);
-
-        if(Logik.highScoreList == null){
-            System.out.println("ARRAYLIST FINDES IKKE");
-        }
-    }
 
     public int udregnScore(){
         //Brugeren har som udgangspunkt en score på 1000, hvorefter antallet af
-        // sekunder bliver trukket fra, samt en penalty på 10 point pr. forkert gættet bogstav
+        // sekunder bliver trukket fra (* 5), samt en penalty på 50 point pr. forkert gættet bogstav
         String tidFraSpil = getIntent().getStringExtra("tid");
 
         int resultTime = Integer.parseInt(tidFraSpil);
         int penalty = logik.getAntalForkerteBogstaver();
-        point = 1000 - resultTime - (penalty*10);
+        point = 1000 - (resultTime * 5) - (penalty*50);
         return point;
     }
 
-
+//Ryster med edittext feltet når brugeren prøver at gemme og der intet navn er skrevet i
+// feltet. Ideen er min egen, men har læst på nettet til hvordan man kunne gøre
     public TranslateAnimation shakeError() {
         TranslateAnimation shake = new TranslateAnimation(0, 10, 0, 0);
         shake.setDuration(500);
         shake.setInterpolator(new CycleInterpolator(7));
         return shake;
     }
-
-    public static int getScreenWidth() {
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
-    }
-
-    /*public void play(View v){
-        Mediaplayer.
-    }
-
-     */
 
 
 }
